@@ -1,4 +1,4 @@
-from ir import Graph, Node, Op
+from .ir import Graph, Node, Op
 
 
 class TensorProxy:

@@ -1,7 +1,11 @@
 import dis
 
-from guards import Guard
-from ir import Graph, Op, Node
+from .guards import Guard
+from ..ir import Graph, Op, Node
+from ..proxy import relu
+
+
+_NULL = object()
 
 
 """
@@ -32,18 +36,19 @@ class MiniDynamo:
         self.locals = {}
         self.guards = []
 
-    def trace(self, fn, flag: bool):
-        self.locals = {
-            "x": self.graph.add_input("x"),
-            "flag": flag,
-        }
-
-        self.guards = [Guard("flag", flag)]
-        print("Tracing with guards:", self.guards)
+    def trace(self, fn, **concrete_args):
+        """Trace positional inputs symbolically; specialize supplied booleans."""
+        self.graph = Graph()
+        self.stack = []
+        self.locals = {}
+        self.guards = []
         # 1. Discover the function's positional arguments.
         # Example: forward(x, y) -> ("x", "y")
         code = fn.__code__
         arg_names = code.co_varnames[:code.co_argcount]
+        unknown = concrete_args.keys() - set(arg_names)
+        if unknown:
+            raise TypeError(f"Unknown concrete arguments: {sorted(unknown)}")
 
         print(f"\nTracing function: {fn.__name__}")
         print(f"Arguments: {arg_names}")
@@ -51,7 +56,19 @@ class MiniDynamo:
         # 2. Create symbolic input nodes.
         # We don't have real tensor values.
         for name in arg_names:
-            node = self.graph.add_input(name)
+            if name in concrete_args:
+                value = concrete_args[name]
+                if not isinstance(value, bool):
+                    raise TypeError("Only concrete Boolean arguments are supported")
+                self.locals[name] = value
+                self.guards.append(Guard(
+                    name,
+                    lambda context, key=name, expected=value: context[key] is expected,
+                ))
+            else:
+                self.locals[name] = self.graph.add_input(name)
+
+        print("Tracing with guards:", self.guards)
 
         print("\nInitial locals:")
         print({k: getattr(v, "name", v) for k, v in self.locals.items()})
@@ -103,6 +120,30 @@ class MiniDynamo:
 
                 print(f"  Created constant: {ins.argval}")
 
+            elif ins.opname == "LOAD_GLOBAL":
+                # Python 3.11 encodes the call's NULL marker in the low bit.
+                if ins.arg & 1:
+                    self.stack.append(_NULL)
+                self.stack.append(fn.__globals__[ins.argval])
+
+            elif ins.opname == "PUSH_NULL":
+                self.stack.append(_NULL)
+
+            elif ins.opname == "PRECALL":
+                # CALL below handles both the arguments and callable.
+                pass
+
+            elif ins.opname == "CALL":
+                args = [self.stack.pop() for _ in range(ins.arg)][::-1]
+                callee = self.stack.pop()
+                if self.stack and self.stack[-1] is _NULL:
+                    self.stack.pop()
+                if callee is not relu:
+                    raise NotImplementedError(f"Unsupported function call: {callee}")
+                if len(args) != 1 or not isinstance(args[0], Node):
+                    raise TypeError("relu expects one symbolic input")
+                self.stack.append(self.graph.add_node(Op.RELU, args))
+
             elif ins.opname == "BINARY_OP":
                 # Pop the top two operands.
                 # Right operand is popped first.
@@ -145,7 +186,7 @@ class MiniDynamo:
 
                 if not condition:
                     pc = offset_to_pc[ins.argval]
-                    print("f  Jumping to PC={pc}")
+                    print(f"  Jumping to PC={pc}")
                     continue
 
                 print("  Condition true, continue execution")

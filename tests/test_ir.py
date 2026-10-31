@@ -1,9 +1,9 @@
-"""Test IR construction with ``python ir_test.py``."""
+"""Test IR construction with ``python -m tests.test_ir``."""
 
 import unittest
 
-from ir import Graph, Op
-from proxy import TensorProxy, relu
+from tiny_torch_compile.ir import Graph, Op
+from tiny_torch_compile.proxy import TensorProxy, relu
 
 
 EXPECTED_IR = """\

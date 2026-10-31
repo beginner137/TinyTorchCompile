@@ -1,4 +1,4 @@
-from mini_dynamo import MiniDynamo
+from .mini_dynamo import MiniDynamo
 
 
 class GraphCache:
