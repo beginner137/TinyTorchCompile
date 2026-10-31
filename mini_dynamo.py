@@ -1,14 +1,7 @@
 import dis
 
+from guards import Guard
 from ir import Graph, Op, Node
-
-
-def forward(x, flag):
-    z = x * 2
-
-    if flag:
-        z = z + 1
-    return z
 
 
 """
@@ -26,13 +19,6 @@ LOAD_FAST    z
 RETURN_VALUE
 """
 
-for instruction in dis.get_instructions(forward):
-    print(
-        instruction.opname,
-        instruction.argrepr
-    )
-
-
 def describe(value):
     if isinstance(value, Node):
         return value.name
@@ -44,12 +30,16 @@ class MiniDynamo:
         self.graph = Graph()
         self.stack = []
         self.locals = {}
+        self.guards = []
 
     def trace(self, fn, flag: bool):
         self.locals = {
             "x": self.graph.add_input("x"),
             "flag": flag,
         }
+
+        self.guards = [Guard("flag", flag)]
+        print("Tracing with guards:", self.guards)
         # 1. Discover the function's positional arguments.
         # Example: forward(x, y) -> ("x", "y")
         code = fn.__code__
@@ -183,9 +173,3 @@ class MiniDynamo:
                   else "(empty)")
 
         raise RuntimeError("No RETURN_VALUE found")
-
-
-if __name__ == "__main__":
-    tracer = MiniDynamo()
-    graph = tracer.trace(forward, flag=False)
-    print(graph)
