@@ -158,6 +158,8 @@ class MiniDynamo:
                     op = Op.MUL
                 elif ins.argrepr == "+":
                     op = Op.ADD
+                elif ins.argrepr == "**":
+                    op = Op.POW
                 else:
                     raise NotImplementedError(ins.argrepr)
 

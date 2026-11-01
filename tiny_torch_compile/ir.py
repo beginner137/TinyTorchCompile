@@ -7,6 +7,7 @@ class Op(Enum):
     ADD = auto()
     MUL = auto()
     RELU = auto()
+    POW = auto()
 
 
 class Node:
