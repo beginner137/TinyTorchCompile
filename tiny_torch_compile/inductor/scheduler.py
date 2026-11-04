@@ -1,6 +1,48 @@
 from .ir import Add, Assign, Const, FusedKernel, Load, Mul, Pointwise, Temp
 
 
+def get_loads(expr):
+    """Recursively collect memory loads from an expression."""
+
+    if isinstance(expr, Load):
+        return [expr]
+
+    if isinstance(expr, (Add, Mul)):
+        return get_loads(expr.left) + get_loads(expr.right)
+
+    if isinstance(expr, (Const, Temp)):
+        return []
+
+    raise NotImplementedError(type(expr))
+
+
+def can_fuse(producer: Pointwise, consumer: Pointwise) -> bool:
+    """Check simple 1D vertical pointwise fusion legality."""
+
+    # 1. Both computations must have the same iteration space.
+    if producer.extent != consumer.extent:
+        return False
+
+    producer_loads = get_loads(producer.expression)
+    consumer_loads = get_loads(consumer.expression)
+
+    # 2. Our toy fused kernel only supports x[i] indexing.
+    if any(
+        load.index != "i"
+        for load in producer_loads + consumer_loads
+    ):
+        return False
+
+    # 3. Consumer must actually use the producer's output.
+    if not any(
+        load.buffer == producer.name
+        for load in consumer_loads
+    ):
+        return False
+
+    return True
+
+
 def topological_sort_pointwise(pointwise_ops):
     by_name = {op.name: op for op in pointwise_ops}
 
@@ -93,6 +135,13 @@ def fuse_pointwise(pointwise_ops: list[Pointwise]) -> FusedKernel:
       - The last operation produces the output.
     """
     pointwise_ops = topological_sort_pointwise(pointwise_ops)
+    for producer, consumer in zip(pointwise_ops, pointwise_ops[1:]):
+        if not can_fuse(producer, consumer):
+            raise ValueError(
+                f"Cannot vertically fuse "
+                f"{producer.name} -> {consumer.name}"
+            )
+
     if not pointwise_ops:
         raise ValueError("Cannot fuse an empty list")
 
