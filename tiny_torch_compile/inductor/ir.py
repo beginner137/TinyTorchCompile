@@ -21,6 +21,12 @@ class InputBuffer:
 
 
 @dataclass
+class Add:
+    left: object
+    right: object
+
+
+@dataclass
 class Mul:
     left: object
     right: object
@@ -29,3 +35,21 @@ class Mul:
 @dataclass
 class Const:
     value: object
+
+
+@dataclass
+class Temp:
+    name: str
+
+
+@dataclass
+class Assign:
+    name: str
+    expression: object
+
+
+@dataclass
+class FusedKernel:
+    extent: int
+    statements: list[Assign]
+    output: str

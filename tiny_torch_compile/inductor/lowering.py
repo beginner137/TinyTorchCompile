@@ -1,7 +1,5 @@
-from ast import Add
-
 from ..ir import Graph, Op
-from .ir import Const, InputBuffer, Load, Mul, Pointwise
+from .ir import Add, Const, InputBuffer, Load, Mul, Pointwise
 
 
 def get_extent(left, right):
