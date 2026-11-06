@@ -100,7 +100,7 @@ build cmake_object_order_depends_target_mini_triton: phony || .
 
 build CMakeFiles/mini_triton.dir/main.cpp.o: CXX_COMPILER__mini_triton_unscanned_ /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/main.cpp || cmake_object_order_depends_target_mini_triton
   DEP_FILE = CMakeFiles/mini_triton.dir/main.cpp.o.d
-  FLAGS = -std=gnu++17 -arch arm64
+  FLAGS = -std=gnu++17
   INCLUDES = -I/opt/homebrew/Cellar/llvm/23.1.5/include -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include
   OBJECT_DIR = CMakeFiles/mini_triton.dir
   OBJECT_FILE_DIR = CMakeFiles/mini_triton.dir
@@ -108,7 +108,7 @@ build CMakeFiles/mini_triton.dir/main.cpp.o: CXX_COMPILER__mini_triton_unscanned
 
 build CMakeFiles/mini_triton.dir/lib/MiniTritonDialect.cpp.o: CXX_COMPILER__mini_triton_unscanned_ /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/lib/MiniTritonDialect.cpp || cmake_object_order_depends_target_mini_triton
   DEP_FILE = CMakeFiles/mini_triton.dir/lib/MiniTritonDialect.cpp.o.d
-  FLAGS = -std=gnu++17 -arch arm64
+  FLAGS = -std=gnu++17
   INCLUDES = -I/opt/homebrew/Cellar/llvm/23.1.5/include -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include
   OBJECT_DIR = CMakeFiles/mini_triton.dir
   OBJECT_FILE_DIR = CMakeFiles/mini_triton.dir/lib
@@ -116,10 +116,18 @@ build CMakeFiles/mini_triton.dir/lib/MiniTritonDialect.cpp.o: CXX_COMPILER__mini
 
 build CMakeFiles/mini_triton.dir/lib/MiniTritonOps.cpp.o: CXX_COMPILER__mini_triton_unscanned_ /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/lib/MiniTritonOps.cpp || cmake_object_order_depends_target_mini_triton
   DEP_FILE = CMakeFiles/mini_triton.dir/lib/MiniTritonOps.cpp.o.d
-  FLAGS = -std=gnu++17 -arch arm64
+  FLAGS = -std=gnu++17
   INCLUDES = -I/opt/homebrew/Cellar/llvm/23.1.5/include -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include
   OBJECT_DIR = CMakeFiles/mini_triton.dir
   OBJECT_FILE_DIR = CMakeFiles/mini_triton.dir/lib
+  TARGET_SUPPORT_DIR = CMakeFiles/mini_triton.dir
+
+build CMakeFiles/mini_triton.dir/lib/Frontend/Frontend.cpp.o: CXX_COMPILER__mini_triton_unscanned_ /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/lib/Frontend/Frontend.cpp || cmake_object_order_depends_target_mini_triton
+  DEP_FILE = CMakeFiles/mini_triton.dir/lib/Frontend/Frontend.cpp.o.d
+  FLAGS = -std=gnu++17
+  INCLUDES = -I/opt/homebrew/Cellar/llvm/23.1.5/include -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include
+  OBJECT_DIR = CMakeFiles/mini_triton.dir
+  OBJECT_FILE_DIR = CMakeFiles/mini_triton.dir/lib/Frontend
   TARGET_SUPPORT_DIR = CMakeFiles/mini_triton.dir
 
 
@@ -130,10 +138,9 @@ build CMakeFiles/mini_triton.dir/lib/MiniTritonOps.cpp.o: CXX_COMPILER__mini_tri
 #############################################
 # Link the executable mini_triton
 
-build mini_triton: CXX_EXECUTABLE_LINKER__mini_triton_ CMakeFiles/mini_triton.dir/main.cpp.o CMakeFiles/mini_triton.dir/lib/MiniTritonDialect.cpp.o CMakeFiles/mini_triton.dir/lib/MiniTritonOps.cpp.o | /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRIR.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSupport.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libLLVM.23.1.dylib
-  FLAGS = -arch arm64
+build mini_triton: CXX_EXECUTABLE_LINKER__mini_triton_ CMakeFiles/mini_triton.dir/main.cpp.o CMakeFiles/mini_triton.dir/lib/MiniTritonDialect.cpp.o CMakeFiles/mini_triton.dir/lib/MiniTritonOps.cpp.o CMakeFiles/mini_triton.dir/lib/Frontend/Frontend.cpp.o | /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRIR.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSupport.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRFuncDialect.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRControlFlowInterfaces.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRFunctionInterfaces.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRCallInterfaces.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRInferTypeOpInterface.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSideEffectInterfaces.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRIR.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSupport.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libLLVM.23.1.dylib
   LINK_FLAGS = -Wl,-search_paths_first -Wl,-headerpad_max_install_names
-  LINK_LIBRARIES = -Wl,-rpath,/opt/homebrew/Cellar/llvm/23.1.5/lib  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRIR.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSupport.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libLLVM.23.1.dylib
+  LINK_LIBRARIES = -Wl,-rpath,/opt/homebrew/Cellar/llvm/23.1.5/lib  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRIR.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSupport.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRFuncDialect.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRControlFlowInterfaces.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRFunctionInterfaces.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRCallInterfaces.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRInferTypeOpInterface.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSideEffectInterfaces.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRIR.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSupport.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libLLVM.23.1.dylib
   OBJECT_DIR = CMakeFiles/mini_triton.dir
   POST_BUILD = :
   PRE_LINK = :

@@ -26,3 +26,11 @@ target_include_directories(mini_triton PRIVATE
 target_sources(mini_triton PRIVATE
     lib/MiniTritonOps.cpp
 )
+
+target_sources(mini_triton PRIVATE
+    lib/Frontend/Frontend.cpp
+)
+
+target_link_libraries(mini_triton PRIVATE
+    MLIRFuncDialect
+)
