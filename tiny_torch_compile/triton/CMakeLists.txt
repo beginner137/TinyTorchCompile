@@ -22,3 +22,7 @@ target_sources(mini_triton PRIVATE
 target_include_directories(mini_triton PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
+
+target_sources(mini_triton PRIVATE
+    lib/MiniTritonOps.cpp
+)

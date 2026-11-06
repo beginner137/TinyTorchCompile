@@ -1,8 +1,12 @@
 # ninja log v7
-4	1378	1793933150381183250	CMakeFiles/mini_triton.dir/main.cpp.o	9dc70a0170ff46cc
-1378	1577	1793933151754364829	mini_triton	781aed0cf13c7d19
-2	271	1793934764767674275	build.ninja	af2e92027858a563
-2	271	1793934764767674275	/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/cmake_install.cmake	af2e92027858a563
-21	1254	1793934764798971064	CMakeFiles/mini_triton.dir/lib/MiniTritonDialect.cpp.o	7f585e8305944f6c
 20	1497	1793934764798542479	CMakeFiles/mini_triton.dir/main.cpp.o	c71fa381395a4586
 1498	1699	1793934766275671792	mini_triton	a24b2705fcf3c90c
+2	271	1793942840838016903	build.ninja	af2e92027858a563
+2	271	1793942840836616448	/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/cmake_install.cmake	af2e92027858a563
+21	1254	1793934764798971064	CMakeFiles/mini_triton.dir/lib/MiniTritonDialect.cpp.o	7f585e8305944f6c
+5	253	1793942840838016903	build.ninja	af2e92027858a563
+5	253	1793942840838016903	/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/cmake_install.cmake	af2e92027858a563
+20	1496	1793942840865358454	CMakeFiles/mini_triton.dir/main.cpp.o	c71fa381395a4586
+34	1457	1793942923626819753	CMakeFiles/mini_triton.dir/lib/MiniTritonOps.cpp.o	6304a0150bd59d23
+8	1123	1793942939015635190	CMakeFiles/mini_triton.dir/lib/MiniTritonDialect.cpp.o	7f585e8305944f6c
+1123	1322	1793942940130539419	mini_triton	f182790ca0656ec2
