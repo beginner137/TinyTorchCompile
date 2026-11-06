@@ -1,0 +1,12 @@
+/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/CMakeFiles/intrinsics_gen.dir
+/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/CMakeFiles/vt_gen.dir
+/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/CMakeFiles/omp_gen.dir
+/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/CMakeFiles/acc_gen.dir
+/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/CMakeFiles/target_parser_gen.dir
+/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/CMakeFiles/mlir-tablegen-targets.dir
+/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/CMakeFiles/mlir-headers.dir
+/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/CMakeFiles/mlir-generic-headers.dir
+/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/CMakeFiles/mlir-doc.dir
+/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/CMakeFiles/mini_triton.dir
+/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/CMakeFiles/edit_cache.dir
+/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/CMakeFiles/rebuild_cache.dir

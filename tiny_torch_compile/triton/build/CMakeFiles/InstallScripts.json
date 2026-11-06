@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
