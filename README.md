@@ -2,7 +2,8 @@
 
 A small Python project exploring graph IR, tracing, guards, and graph caching.
 Requires Python 3.11 for the bytecode instructions currently handled by the tracer.
-No third-party dependencies are needed.
+The Python tests need no third-party dependencies. The C++ and TableGen tools
+require LLVM/MLIR.
 
 ## Layout
 
@@ -90,6 +91,34 @@ python -m tests.test_inductor     # Lowering through code generation
 
 The `-b` option hides printed output for passing tests. Omit it to see tracing
 details. All test modules also accept `-b`.
+
+## Generating MLIR operation declarations and definitions
+
+With Homebrew LLVM installed and `mlir-tblgen` on your `PATH`, run from the
+repository root:
+
+```bash
+cd tiny_torch_compile
+mlir-tblgen -gen-op-decls \
+  triton/include/MiniTriton/IR/MiniTritonOps.td \
+  -I triton/include \
+  -I "$(brew --prefix llvm)/include" \
+  -o /tmp/MiniTritonOps.h.inc
+```
+
+This generates C++ operation declarations in `/tmp/MiniTritonOps.h.inc`.
+
+From the same `tiny_torch_compile` directory, generate the C++ definitions:
+
+```bash
+mlir-tblgen -gen-op-defs \
+  triton/include/MiniTriton/IR/MiniTritonOps.td \
+  -I triton/include \
+  -I "$(brew --prefix llvm)/include" \
+  -o /tmp/MiniTritonOps.cpp.inc
+```
+
+This writes the operation definitions to `/tmp/MiniTritonOps.cpp.inc`.
 
 ## Importing the implementation
 
