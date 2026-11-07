@@ -196,7 +196,9 @@ SplatOp SplatOp::create(::mlir::ImplicitLocOpBuilder &builder, ::mlir::TypeRange
 }
 
 ::llvm::LogicalResult SplatOp::verifyInvariants() {
-  return verifyInvariantsImpl();
+  if(::mlir::succeeded(verifyInvariantsImpl()) && ::mlir::succeeded(verify()))
+    return ::mlir::success();
+  return ::mlir::failure();
 }
 
 ::llvm::LogicalResult SplatOp::setPropertiesFromParsedAttr(Properties &prop, ::mlir::Attribute attr, ::llvm::function_ref<::mlir::InFlightDiagnostic()> emitError) {

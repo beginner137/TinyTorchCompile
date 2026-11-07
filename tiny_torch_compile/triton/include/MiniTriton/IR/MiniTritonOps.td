@@ -10,4 +10,5 @@ def MiniTriton_SplatOp : MiniTriton_Op<"splat"> {
 
   let arguments = (ins I32:$input);
   let results = (outs AnyRankedTensor:$result);
+  let hasVerifier = 1;
 }

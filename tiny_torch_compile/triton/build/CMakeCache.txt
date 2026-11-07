@@ -246,6 +246,9 @@ LibEdit_INCLUDE_DIRS:PATH=/Applications/Xcode.app/Contents/Developer/Platforms/M
 //Path to a library.
 LibEdit_LIBRARIES:FILEPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib/libedit.tbd
 
+//Path to a program.
+MINI_TRITON_TABLEGEN_EXECUTABLE:FILEPATH=/opt/homebrew/Cellar/llvm/23.1.5/bin/mlir-tblgen
+
 //No help, variable specified on the command line.
 MLIR_DIR:UNINITIALIZED=/opt/homebrew/opt/llvm/lib/cmake/mlir
 

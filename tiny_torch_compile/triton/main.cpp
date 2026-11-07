@@ -8,6 +8,7 @@
 #include "MiniTriton/IR/MiniTritonOps.h"
 #include "mlir/Dialect/Func/IR/FuncOps.h"
 #include "MiniTriton/Frontend/Frontend.h"
+#include "mlir/IR/Verifier.h"
 
 int main()
 {
@@ -30,6 +31,11 @@ int main()
                  << opName.isRegistered() << "\n";
 
     mini_triton::buildDemo(module);
+    if (mlir::failed(mlir::verify(module.getOperation())))
+    {
+        llvm::errs() << "Invalid MLIR module!\n";
+        return 1;
+    }
     module.print(llvm::outs());
     llvm::outs() << "\n";
     return 0;
