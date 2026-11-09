@@ -26,18 +26,23 @@ int main()
 
     context.getOrLoadDialect<mini_triton::gpu::MiniTritonGPUDialect>();
 
-    mlir::OperationName name("mini_gpu.splat", &context);
+    mlir::OperationName splatName(mini_triton::gpu::SplatOp::getOperationName(), &context);
     llvm::outs() << "GPU splat registered: "
-                 << name.isRegistered() << "\n";
+                 << splatName.isRegistered() << "\n";
+
+    mlir::OperationName rangeName(mini_triton::gpu::MakeRangeOp::getOperationName(), &context);
+
+    llvm::outs() << "GPU make_range registered: "
+                 << rangeName.isRegistered() << "\n";
 
     mlir::OpBuilder builder(&context);
 
     auto module = mlir::ModuleOp::create(
         builder.getUnknownLoc());
 
-    mlir::OperationName opName("mini.splat", &context);
+    mlir::OperationName opName(mini_triton::MakeRangeOp::getOperationName(), &context);
 
-    llvm::outs() << "mini.splat registered: "
+    llvm::outs() << "mini.make_range registered: "
                  << opName.isRegistered() << "\n";
 
     mini_triton::buildDemo(module);
@@ -46,6 +51,7 @@ int main()
         llvm::errs() << "Invalid MLIR module!\n";
         return 1;
     }
+    llvm::outs() << "Before GPU pass:\n";
     module.print(llvm::outs());
     llvm::outs() << "\n";
 
@@ -76,6 +82,7 @@ int main()
     }
 
     printReturnProducer(); // After lowering
+    llvm::outs() << "After GPU pass:\n";
     module.print(llvm::outs());
     return 0;
 }

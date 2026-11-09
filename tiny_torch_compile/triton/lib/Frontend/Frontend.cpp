@@ -10,23 +10,27 @@ void mini_triton::buildDemo(mlir::ModuleOp module)
 
     auto loc = builder.getUnknownLoc();
     auto i32 = builder.getI32Type();
-    auto tensorType = mlir::RankedTensorType::get({256}, i32);
+    constexpr int64_t start = 0;
+    constexpr int64_t end = 256;
+    auto tensorType = mlir::RankedTensorType::get({end - start}, i32);
 
-    // Create function: (i32) -> tensor<256xi32>
+    // Create function: () -> tensor<256xi32>
     builder.setInsertionPointToStart(module.getBody());
 
-    auto funcType = builder.getFunctionType({i32}, {tensorType});
-    auto func = builder.create<mlir::func::FuncOp>(
-        loc, "demo", funcType);
+    auto funcType = builder.getFunctionType({}, {tensorType});
+    auto func = mlir::func::FuncOp::create(
+        builder, loc, "demo", funcType);
 
     // Create function body
     auto *block = func.addEntryBlock();
     builder.setInsertionPointToStart(block);
 
-    // Create our custom mini.splat operation
-    auto splat = builder.create<mini_triton::SplatOp>(
-        loc, tensorType, block->getArgument(0));
+    auto range = mini_triton::MakeRangeOp::create(
+        builder, loc,
+        tensorType,
+        builder.getI64IntegerAttr(start),
+        builder.getI64IntegerAttr(end));
 
-    builder.create<mlir::func::ReturnOp>(
-        loc, splat.getResult());
+    mlir::func::ReturnOp::create(
+        builder, loc, range.getResult());
 }

@@ -1,4 +1,5 @@
 #pragma once
+#include "mlir/Bytecode/BytecodeOpInterface.h"
 
 #include "mlir/IR/OpDefinition.h"
 #include "mlir/IR/BuiltinTypes.h"

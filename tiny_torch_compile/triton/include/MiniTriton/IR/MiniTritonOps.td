@@ -12,3 +12,9 @@ def MiniTriton_SplatOp : MiniTriton_Op<"splat"> {
   let results = (outs AnyRankedTensor:$result);
   let hasVerifier = 1;
 }
+
+def MiniTriton_MakeRangeOp : MiniTriton_Op<"make_range"> {
+  let arguments = (ins I64Attr:$start, I64Attr:$end);
+  let results = (outs AnyRankedTensor:$result);
+  let hasVerifier = 1;
+}

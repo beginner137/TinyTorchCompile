@@ -1,4 +1,4 @@
 #pragma once
 
 #include "mlir/IR/Dialect.h"
-#include "MiniTriton/IR/MiniTritonGPU.h.inc"
+#include "MiniTriton/IR/MiniTritonGPUDialect.h.inc"

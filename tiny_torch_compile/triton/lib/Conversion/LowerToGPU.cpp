@@ -30,12 +30,41 @@ namespace mini_triton
         }
     };
 
-    mlir::LogicalResult lowerToGPU(mlir::ModuleOp module)
+    struct MakeRangeToGPUPattern
+        : mlir::OpRewritePattern<MakeRangeOp>
+    {
+
+        TargetInfo target_;
+
+        MakeRangeToGPUPattern(
+            mlir::MLIRContext *context,
+            TargetInfo target) : OpRewritePattern<MakeRangeOp>(context),
+                                 target_(target) {}
+
+        mlir::LogicalResult matchAndRewrite(
+            MakeRangeOp op,
+            mlir::PatternRewriter &rewriter) const override
+        {
+
+            rewriter.replaceOpWithNewOp<gpu::MakeRangeOp>(
+                op,
+                op.getResult().getType(),
+                op.getStartAttr(),
+                op.getEndAttr(),
+                rewriter.getI64IntegerAttr(target_.numWarps),
+                rewriter.getI64IntegerAttr(1));
+
+            return mlir::success();
+        }
+    };
+
+    mlir::LogicalResult lowerToGPU(mlir::ModuleOp module, TargetInfo target)
     {
         mlir::RewritePatternSet patterns(module.getContext());
 
         patterns.add<SplatToGPUPattern>(module.getContext());
-
+        patterns.add<MakeRangeToGPUPattern>(
+            module.getContext(), target);
         return mlir::applyPatternsGreedily(
             module.getOperation(),
             mlir::FrozenRewritePatternSet(std::move(patterns)));
@@ -62,7 +91,7 @@ namespace mini_triton
         {
             llvm::outs() << "Target warp size: "
                          << target_.warpSize << "\n";
-            if (mlir::failed(lowerToGPU(getOperation())))
+            if (mlir::failed(lowerToGPU(getOperation(), target_)))
             {
                 signalPassFailure();
             }

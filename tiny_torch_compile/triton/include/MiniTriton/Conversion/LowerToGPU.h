@@ -8,6 +8,6 @@
 
 namespace mini_triton
 {
-    mlir::LogicalResult lowerToGPU(mlir::ModuleOp module);
+    mlir::LogicalResult lowerToGPU(mlir::ModuleOp module, TargetInfo target);
     std::unique_ptr<mlir::Pass> createLowerToGPUPass(TargetInfo target);
 }
