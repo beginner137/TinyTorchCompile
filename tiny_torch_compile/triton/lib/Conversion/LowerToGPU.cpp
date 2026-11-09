@@ -46,6 +46,10 @@ namespace mini_triton
               LowerToGPUPass,
               mlir::OperationPass<mlir::ModuleOp>>
     {
+        TargetInfo target_;
+
+        explicit LowerToGPUPass(TargetInfo target)
+            : target_(target) {}
 
         MLIR_DEFINE_EXPLICIT_INTERNAL_INLINE_TYPE_ID(LowerToGPUPass)
 
@@ -56,6 +60,8 @@ namespace mini_triton
 
         void runOnOperation() override
         {
+            llvm::outs() << "Target warp size: "
+                         << target_.warpSize << "\n";
             if (mlir::failed(lowerToGPU(getOperation())))
             {
                 signalPassFailure();
@@ -63,9 +69,9 @@ namespace mini_triton
         }
     };
 
-    std::unique_ptr<mlir::Pass> createLowerToGPUPass()
+    std::unique_ptr<mlir::Pass> createLowerToGPUPass(TargetInfo target)
     {
-        return std::make_unique<LowerToGPUPass>();
+        return std::make_unique<LowerToGPUPass>(target);
     }
 
 } // namespace mini_triton

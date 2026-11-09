@@ -29,3 +29,6 @@
 6	246	1794201199800416710	/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/cmake_install.cmake	af2e92027858a563
 27	1820	1794201199835125962	CMakeFiles/mini_triton.dir/main.cpp.o	ba271d6e0e926aed
 1820	2006	1794201201628290022	mini_triton	8a49bf55d0fb77ed
+12	1693	1794201953812922081	CMakeFiles/mini_triton.dir/main.cpp.o	ba271d6e0e926aed
+22	1790	1794201984941875879	CMakeFiles/mini_triton.dir/lib/Conversion/LowerToGPU.cpp.o	e95db364248b6564
+1790	1991	1794201986710209699	mini_triton	8a49bf55d0fb77ed

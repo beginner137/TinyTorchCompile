@@ -61,9 +61,14 @@ int main()
     };
 
     printReturnProducer(); // Before lowering
+    mini_triton::TargetInfo target{
+        mini_triton::GPUVendor::NVIDIA,
+        32, // NVIDIA warp size
+        4   // warps per CTA
+    };
 
     mlir::PassManager pm(&context);
-    pm.addPass(mini_triton::createLowerToGPUPass());
+    pm.addPass(mini_triton::createLowerToGPUPass(target));
     if (mlir::failed(pm.run(module)))
     {
         llvm::errs() << "GPU lowering failed\n";
