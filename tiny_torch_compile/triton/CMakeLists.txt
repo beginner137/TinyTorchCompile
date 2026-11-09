@@ -32,6 +32,18 @@ tablegen(MLIR include/MiniTriton/IR/MiniTritonDialect.h.inc
 tablegen(MLIR include/MiniTriton/IR/MiniTritonDialect.cpp.inc
     -gen-dialect-defs -dialect=mini
     EXTRA_INCLUDES ${MINI_TRITON_TABLEGEN_INCLUDES})
+set(LLVM_TARGET_DEFINITIONS include/MiniTriton/IR/MiniTritonGPU.td)
+tablegen(MLIR include/MiniTriton/IR/MiniTritonGPUOps.h.inc -gen-op-decls
+    EXTRA_INCLUDES ${MINI_TRITON_TABLEGEN_INCLUDES})
+tablegen(MLIR include/MiniTriton/IR/MiniTritonGPUOps.cpp.inc -gen-op-defs
+    EXTRA_INCLUDES ${MINI_TRITON_TABLEGEN_INCLUDES})
+tablegen(MLIR include/MiniTriton/IR/MiniTritonGPUDialect.h.inc
+    -gen-dialect-decls -dialect=mini_gpu
+    EXTRA_INCLUDES ${MINI_TRITON_TABLEGEN_INCLUDES})
+tablegen(MLIR include/MiniTriton/IR/MiniTritonGPUDialect.cpp.inc
+    -gen-dialect-defs -dialect=mini_gpu
+    EXTRA_INCLUDES ${MINI_TRITON_TABLEGEN_INCLUDES})
+
 add_custom_target(MiniTritonIncGen DEPENDS ${TABLEGEN_OUTPUT})
 
 add_executable(mini_triton main.cpp)
@@ -64,4 +76,21 @@ target_sources(mini_triton PRIVATE
 
 target_link_libraries(mini_triton PRIVATE
     MLIRFuncDialect
+)
+
+target_sources(mini_triton PRIVATE
+    lib/MiniTritonGPUDialect.cpp
+    lib/MiniTritonGPUOps.cpp
+)
+
+target_include_directories(mini_triton PRIVATE
+    ${CMAKE_CURRENT_BINARY_DIR}/include
+)
+
+target_sources(mini_triton PRIVATE
+    lib/Conversion/LowerToGPU.cpp
+)
+
+target_link_libraries(mini_triton PRIVATE
+    MLIRTransformUtils
 )

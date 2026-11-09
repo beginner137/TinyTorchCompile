@@ -9,6 +9,8 @@
 #include "mlir/Dialect/Func/IR/FuncOps.h"
 #include "MiniTriton/Frontend/Frontend.h"
 #include "mlir/IR/Verifier.h"
+#include "MiniTriton/IR/MiniTritonGPUOps.h"
+#include "MiniTriton/Conversion/LowerToGPU.h"
 
 int main()
 {
@@ -20,6 +22,13 @@ int main()
     llvm::outs()
         << "Loaded dialect: "
         << dialect->getNamespace() << "\n";
+
+    context.getOrLoadDialect<mini_triton::gpu::MiniTritonGPUDialect>();
+
+    mlir::OperationName name("mini_gpu.splat", &context);
+    llvm::outs() << "GPU splat registered: "
+                 << name.isRegistered() << "\n";
+
     mlir::OpBuilder builder(&context);
 
     auto module = mlir::ModuleOp::create(
@@ -38,5 +47,13 @@ int main()
     }
     module.print(llvm::outs());
     llvm::outs() << "\n";
+
+    if (mlir::failed(mini_triton::lowerToGPU(module)))
+    {
+        llvm::errs() << "GPU lowering failed\n";
+        return 1;
+    }
+
+    module.print(llvm::outs());
     return 0;
 }

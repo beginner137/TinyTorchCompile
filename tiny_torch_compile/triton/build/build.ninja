@@ -93,7 +93,7 @@ build mlir-doc: phony
 #############################################
 # Utility command for MiniTritonIncGen
 
-build MiniTritonIncGen: phony CMakeFiles/MiniTritonIncGen include/MiniTriton/IR/MiniTritonDialect.cpp.inc include/MiniTriton/IR/MiniTritonDialect.h.inc include/MiniTriton/IR/MiniTritonOps.cpp.inc include/MiniTriton/IR/MiniTritonOps.h.inc
+build MiniTritonIncGen: phony CMakeFiles/MiniTritonIncGen include/MiniTriton/IR/MiniTritonDialect.cpp.inc include/MiniTriton/IR/MiniTritonDialect.h.inc include/MiniTriton/IR/MiniTritonGPUDialect.cpp.inc include/MiniTriton/IR/MiniTritonGPUDialect.h.inc include/MiniTriton/IR/MiniTritonGPUOps.cpp.inc include/MiniTriton/IR/MiniTritonGPUOps.h.inc include/MiniTriton/IR/MiniTritonOps.cpp.inc include/MiniTriton/IR/MiniTritonOps.h.inc
 
 # =============================================================================
 # Object build statements for EXECUTABLE target mini_triton
@@ -106,7 +106,7 @@ build cmake_object_order_depends_target_mini_triton: phony || MiniTritonIncGen
 
 build CMakeFiles/mini_triton.dir/main.cpp.o: CXX_COMPILER__mini_triton_unscanned_ /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/main.cpp || cmake_object_order_depends_target_mini_triton
   DEP_FILE = CMakeFiles/mini_triton.dir/main.cpp.o.d
-  FLAGS = -std=gnu++17
+  FLAGS = -std=gnu++17 -arch arm64
   INCLUDES = -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/include -I/opt/homebrew/Cellar/llvm/23.1.5/include -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include
   OBJECT_DIR = CMakeFiles/mini_triton.dir
   OBJECT_FILE_DIR = CMakeFiles/mini_triton.dir
@@ -114,7 +114,7 @@ build CMakeFiles/mini_triton.dir/main.cpp.o: CXX_COMPILER__mini_triton_unscanned
 
 build CMakeFiles/mini_triton.dir/lib/MiniTritonDialect.cpp.o: CXX_COMPILER__mini_triton_unscanned_ /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/lib/MiniTritonDialect.cpp || cmake_object_order_depends_target_mini_triton
   DEP_FILE = CMakeFiles/mini_triton.dir/lib/MiniTritonDialect.cpp.o.d
-  FLAGS = -std=gnu++17
+  FLAGS = -std=gnu++17 -arch arm64
   INCLUDES = -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/include -I/opt/homebrew/Cellar/llvm/23.1.5/include -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include
   OBJECT_DIR = CMakeFiles/mini_triton.dir
   OBJECT_FILE_DIR = CMakeFiles/mini_triton.dir/lib
@@ -122,7 +122,7 @@ build CMakeFiles/mini_triton.dir/lib/MiniTritonDialect.cpp.o: CXX_COMPILER__mini
 
 build CMakeFiles/mini_triton.dir/lib/MiniTritonOps.cpp.o: CXX_COMPILER__mini_triton_unscanned_ /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/lib/MiniTritonOps.cpp || cmake_object_order_depends_target_mini_triton
   DEP_FILE = CMakeFiles/mini_triton.dir/lib/MiniTritonOps.cpp.o.d
-  FLAGS = -std=gnu++17
+  FLAGS = -std=gnu++17 -arch arm64
   INCLUDES = -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/include -I/opt/homebrew/Cellar/llvm/23.1.5/include -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include
   OBJECT_DIR = CMakeFiles/mini_triton.dir
   OBJECT_FILE_DIR = CMakeFiles/mini_triton.dir/lib
@@ -130,10 +130,34 @@ build CMakeFiles/mini_triton.dir/lib/MiniTritonOps.cpp.o: CXX_COMPILER__mini_tri
 
 build CMakeFiles/mini_triton.dir/lib/Frontend/Frontend.cpp.o: CXX_COMPILER__mini_triton_unscanned_ /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/lib/Frontend/Frontend.cpp || cmake_object_order_depends_target_mini_triton
   DEP_FILE = CMakeFiles/mini_triton.dir/lib/Frontend/Frontend.cpp.o.d
-  FLAGS = -std=gnu++17
+  FLAGS = -std=gnu++17 -arch arm64
   INCLUDES = -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/include -I/opt/homebrew/Cellar/llvm/23.1.5/include -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include
   OBJECT_DIR = CMakeFiles/mini_triton.dir
   OBJECT_FILE_DIR = CMakeFiles/mini_triton.dir/lib/Frontend
+  TARGET_SUPPORT_DIR = CMakeFiles/mini_triton.dir
+
+build CMakeFiles/mini_triton.dir/lib/MiniTritonGPUDialect.cpp.o: CXX_COMPILER__mini_triton_unscanned_ /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/lib/MiniTritonGPUDialect.cpp || cmake_object_order_depends_target_mini_triton
+  DEP_FILE = CMakeFiles/mini_triton.dir/lib/MiniTritonGPUDialect.cpp.o.d
+  FLAGS = -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/include -I/opt/homebrew/Cellar/llvm/23.1.5/include -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include
+  OBJECT_DIR = CMakeFiles/mini_triton.dir
+  OBJECT_FILE_DIR = CMakeFiles/mini_triton.dir/lib
+  TARGET_SUPPORT_DIR = CMakeFiles/mini_triton.dir
+
+build CMakeFiles/mini_triton.dir/lib/MiniTritonGPUOps.cpp.o: CXX_COMPILER__mini_triton_unscanned_ /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/lib/MiniTritonGPUOps.cpp || cmake_object_order_depends_target_mini_triton
+  DEP_FILE = CMakeFiles/mini_triton.dir/lib/MiniTritonGPUOps.cpp.o.d
+  FLAGS = -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/include -I/opt/homebrew/Cellar/llvm/23.1.5/include -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include
+  OBJECT_DIR = CMakeFiles/mini_triton.dir
+  OBJECT_FILE_DIR = CMakeFiles/mini_triton.dir/lib
+  TARGET_SUPPORT_DIR = CMakeFiles/mini_triton.dir
+
+build CMakeFiles/mini_triton.dir/lib/Conversion/LowerToGPU.cpp.o: CXX_COMPILER__mini_triton_unscanned_ /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/lib/Conversion/LowerToGPU.cpp || cmake_object_order_depends_target_mini_triton
+  DEP_FILE = CMakeFiles/mini_triton.dir/lib/Conversion/LowerToGPU.cpp.o.d
+  FLAGS = -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/include -I/opt/homebrew/Cellar/llvm/23.1.5/include -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include
+  OBJECT_DIR = CMakeFiles/mini_triton.dir
+  OBJECT_FILE_DIR = CMakeFiles/mini_triton.dir/lib/Conversion
   TARGET_SUPPORT_DIR = CMakeFiles/mini_triton.dir
 
 
@@ -144,9 +168,10 @@ build CMakeFiles/mini_triton.dir/lib/Frontend/Frontend.cpp.o: CXX_COMPILER__mini
 #############################################
 # Link the executable mini_triton
 
-build mini_triton: CXX_EXECUTABLE_LINKER__mini_triton_ CMakeFiles/mini_triton.dir/main.cpp.o CMakeFiles/mini_triton.dir/lib/MiniTritonDialect.cpp.o CMakeFiles/mini_triton.dir/lib/MiniTritonOps.cpp.o CMakeFiles/mini_triton.dir/lib/Frontend/Frontend.cpp.o | /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRIR.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSupport.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRFuncDialect.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRControlFlowInterfaces.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRFunctionInterfaces.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRCallInterfaces.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRInferTypeOpInterface.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSideEffectInterfaces.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRIR.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSupport.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libLLVM.23.1.dylib || MiniTritonIncGen
+build mini_triton: CXX_EXECUTABLE_LINKER__mini_triton_ CMakeFiles/mini_triton.dir/main.cpp.o CMakeFiles/mini_triton.dir/lib/MiniTritonDialect.cpp.o CMakeFiles/mini_triton.dir/lib/MiniTritonOps.cpp.o CMakeFiles/mini_triton.dir/lib/Frontend/Frontend.cpp.o CMakeFiles/mini_triton.dir/lib/MiniTritonGPUDialect.cpp.o CMakeFiles/mini_triton.dir/lib/MiniTritonGPUOps.cpp.o CMakeFiles/mini_triton.dir/lib/Conversion/LowerToGPU.cpp.o | /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRIR.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSupport.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRFuncDialect.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRTransformUtils.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSubsetOpInterface.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRValueBoundsOpInterface.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRDestinationStyleOpInterface.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRRewrite.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRRewritePDL.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRPDLToPDLInterp.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRPDLInterpDialect.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRPDLDialect.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRPass.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRAnalysis.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRInferTypeOpInterface.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSideEffectInterfaces.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRLoopLikeInterface.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRControlFlowInterfaces.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRFunctionInterfaces.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRCallInterfaces.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRDataLayoutInterfaces.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRDialectUtils.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRInferIntDivisibilityOpInterface.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRInferStridedMetadataInterface.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRInferIntRangeInterface.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRPresburger.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRViewLikeInterface.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRIR.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSupport.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libLLVM.23.1.dylib || MiniTritonIncGen
+  FLAGS = -arch arm64
   LINK_FLAGS = -Wl,-search_paths_first -Wl,-headerpad_max_install_names
-  LINK_LIBRARIES = -Wl,-rpath,/opt/homebrew/Cellar/llvm/23.1.5/lib  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRIR.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSupport.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRFuncDialect.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRControlFlowInterfaces.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRFunctionInterfaces.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRCallInterfaces.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRInferTypeOpInterface.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSideEffectInterfaces.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRIR.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSupport.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libLLVM.23.1.dylib
+  LINK_LIBRARIES = -Wl,-rpath,/opt/homebrew/Cellar/llvm/23.1.5/lib  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRIR.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSupport.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRFuncDialect.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRTransformUtils.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSubsetOpInterface.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRValueBoundsOpInterface.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRDestinationStyleOpInterface.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRRewrite.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRRewritePDL.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRPDLToPDLInterp.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRPDLInterpDialect.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRPDLDialect.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRPass.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRAnalysis.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRInferTypeOpInterface.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSideEffectInterfaces.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRLoopLikeInterface.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRControlFlowInterfaces.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRFunctionInterfaces.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRCallInterfaces.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRDataLayoutInterfaces.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRDialectUtils.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRInferIntDivisibilityOpInterface.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRInferStridedMetadataInterface.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRInferIntRangeInterface.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRPresburger.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRViewLikeInterface.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRIR.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSupport.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libLLVM.23.1.dylib
   OBJECT_DIR = CMakeFiles/mini_triton.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -182,7 +207,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Phony custom command for CMakeFiles/MiniTritonIncGen
 
-build CMakeFiles/MiniTritonIncGen | ${cmake_ninja_workdir}CMakeFiles/MiniTritonIncGen: phony include/MiniTriton/IR/MiniTritonOps.h.inc include/MiniTriton/IR/MiniTritonOps.cpp.inc include/MiniTriton/IR/MiniTritonDialect.h.inc include/MiniTriton/IR/MiniTritonDialect.cpp.inc
+build CMakeFiles/MiniTritonIncGen | ${cmake_ninja_workdir}CMakeFiles/MiniTritonIncGen: phony include/MiniTriton/IR/MiniTritonOps.h.inc include/MiniTriton/IR/MiniTritonOps.cpp.inc include/MiniTriton/IR/MiniTritonDialect.h.inc include/MiniTriton/IR/MiniTritonDialect.cpp.inc include/MiniTriton/IR/MiniTritonGPUOps.h.inc include/MiniTriton/IR/MiniTritonGPUOps.cpp.inc include/MiniTriton/IR/MiniTritonGPUDialect.h.inc include/MiniTriton/IR/MiniTritonGPUDialect.cpp.inc
 
 
 #############################################
@@ -203,6 +228,50 @@ build include/MiniTriton/IR/MiniTritonDialect.h.inc | ${cmake_ninja_workdir}incl
   COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/Cellar/llvm/23.1.5/bin/mlir-tblgen -gen-dialect-decls -dialect=mini -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include -I/opt/homebrew/Cellar/llvm/23.1.5/include -I/opt/homebrew/Cellar/llvm/23.1.5/include /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include/MiniTriton/IR/MiniTritonDialect.td --write-if-changed -o include/MiniTriton/IR/MiniTritonDialect.h.inc -d include/MiniTriton/IR/MiniTritonDialect.h.inc.d && /opt/homebrew/bin/cmake -E cmake_transform_depfile Ninja gccdepfile /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/include/MiniTriton/IR/MiniTritonDialect.h.inc.d /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/CMakeFiles/d/733eaec1ca13e4a7c64bfbd968844973a8905db15e548cc76eeaaa9464ca8f0a.d
   DESC = Building include/MiniTriton/IR/MiniTritonDialect.h.inc...
   depfile = CMakeFiles/d/733eaec1ca13e4a7c64bfbd968844973a8905db15e548cc76eeaaa9464ca8f0a.d
+  deps = gcc
+  restat = 1
+
+
+#############################################
+# Custom command for include/MiniTriton/IR/MiniTritonGPUDialect.cpp.inc
+
+build include/MiniTriton/IR/MiniTritonGPUDialect.cpp.inc | ${cmake_ninja_workdir}include/MiniTriton/IR/MiniTritonGPUDialect.cpp.inc: CUSTOM_COMMAND /opt/homebrew/Cellar/llvm/23.1.5/bin/mlir-tblgen /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include/MiniTriton/IR/MiniTritonGPU.td
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/Cellar/llvm/23.1.5/bin/mlir-tblgen -gen-dialect-defs -dialect=mini_gpu -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include -I/opt/homebrew/Cellar/llvm/23.1.5/include -I/opt/homebrew/Cellar/llvm/23.1.5/include /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include/MiniTriton/IR/MiniTritonGPU.td --write-if-changed -o include/MiniTriton/IR/MiniTritonGPUDialect.cpp.inc -d include/MiniTriton/IR/MiniTritonGPUDialect.cpp.inc.d && /opt/homebrew/bin/cmake -E cmake_transform_depfile Ninja gccdepfile /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/include/MiniTriton/IR/MiniTritonGPUDialect.cpp.inc.d /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/CMakeFiles/d/9e7b555658b0b1bbbf34732f1fe341650d256158b9f8905f569fb36516f8eb8d.d
+  DESC = Building include/MiniTriton/IR/MiniTritonGPUDialect.cpp.inc...
+  depfile = CMakeFiles/d/9e7b555658b0b1bbbf34732f1fe341650d256158b9f8905f569fb36516f8eb8d.d
+  deps = gcc
+  restat = 1
+
+
+#############################################
+# Custom command for include/MiniTriton/IR/MiniTritonGPUDialect.h.inc
+
+build include/MiniTriton/IR/MiniTritonGPUDialect.h.inc | ${cmake_ninja_workdir}include/MiniTriton/IR/MiniTritonGPUDialect.h.inc: CUSTOM_COMMAND /opt/homebrew/Cellar/llvm/23.1.5/bin/mlir-tblgen /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include/MiniTriton/IR/MiniTritonGPU.td
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/Cellar/llvm/23.1.5/bin/mlir-tblgen -gen-dialect-decls -dialect=mini_gpu -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include -I/opt/homebrew/Cellar/llvm/23.1.5/include -I/opt/homebrew/Cellar/llvm/23.1.5/include /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include/MiniTriton/IR/MiniTritonGPU.td --write-if-changed -o include/MiniTriton/IR/MiniTritonGPUDialect.h.inc -d include/MiniTriton/IR/MiniTritonGPUDialect.h.inc.d && /opt/homebrew/bin/cmake -E cmake_transform_depfile Ninja gccdepfile /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/include/MiniTriton/IR/MiniTritonGPUDialect.h.inc.d /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/CMakeFiles/d/a9c18a9f189dfeef2cc480f53d7d6b47e188c12bedd1af9ac7de960166101dc1.d
+  DESC = Building include/MiniTriton/IR/MiniTritonGPUDialect.h.inc...
+  depfile = CMakeFiles/d/a9c18a9f189dfeef2cc480f53d7d6b47e188c12bedd1af9ac7de960166101dc1.d
+  deps = gcc
+  restat = 1
+
+
+#############################################
+# Custom command for include/MiniTriton/IR/MiniTritonGPUOps.cpp.inc
+
+build include/MiniTriton/IR/MiniTritonGPUOps.cpp.inc | ${cmake_ninja_workdir}include/MiniTriton/IR/MiniTritonGPUOps.cpp.inc: CUSTOM_COMMAND /opt/homebrew/Cellar/llvm/23.1.5/bin/mlir-tblgen /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include/MiniTriton/IR/MiniTritonGPU.td
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/Cellar/llvm/23.1.5/bin/mlir-tblgen -gen-op-defs -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include -I/opt/homebrew/Cellar/llvm/23.1.5/include -I/opt/homebrew/Cellar/llvm/23.1.5/include /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include/MiniTriton/IR/MiniTritonGPU.td --write-if-changed -o include/MiniTriton/IR/MiniTritonGPUOps.cpp.inc -d include/MiniTriton/IR/MiniTritonGPUOps.cpp.inc.d && /opt/homebrew/bin/cmake -E cmake_transform_depfile Ninja gccdepfile /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/include/MiniTriton/IR/MiniTritonGPUOps.cpp.inc.d /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/CMakeFiles/d/4efdb9ec51a9fe7d0da1fc0ef6a95f3c3419f34de98fd5547a28bdd13d22f6e6.d
+  DESC = Building include/MiniTriton/IR/MiniTritonGPUOps.cpp.inc...
+  depfile = CMakeFiles/d/4efdb9ec51a9fe7d0da1fc0ef6a95f3c3419f34de98fd5547a28bdd13d22f6e6.d
+  deps = gcc
+  restat = 1
+
+
+#############################################
+# Custom command for include/MiniTriton/IR/MiniTritonGPUOps.h.inc
+
+build include/MiniTriton/IR/MiniTritonGPUOps.h.inc | ${cmake_ninja_workdir}include/MiniTriton/IR/MiniTritonGPUOps.h.inc: CUSTOM_COMMAND /opt/homebrew/Cellar/llvm/23.1.5/bin/mlir-tblgen /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include/MiniTriton/IR/MiniTritonGPU.td
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/Cellar/llvm/23.1.5/bin/mlir-tblgen -gen-op-decls -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include -I/opt/homebrew/Cellar/llvm/23.1.5/include -I/opt/homebrew/Cellar/llvm/23.1.5/include /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include/MiniTriton/IR/MiniTritonGPU.td --write-if-changed -o include/MiniTriton/IR/MiniTritonGPUOps.h.inc -d include/MiniTriton/IR/MiniTritonGPUOps.h.inc.d && /opt/homebrew/bin/cmake -E cmake_transform_depfile Ninja gccdepfile /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/include/MiniTriton/IR/MiniTritonGPUOps.h.inc.d /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/CMakeFiles/d/d17e04a18e0f13c01b8034d40eafcd8363ea1d2846aa7dd4ac3d499c4662c166.d
+  DESC = Building include/MiniTriton/IR/MiniTritonGPUOps.h.inc...
+  depfile = CMakeFiles/d/d17e04a18e0f13c01b8034d40eafcd8363ea1d2846aa7dd4ac3d499c4662c166.d
   deps = gcc
   restat = 1
 
