@@ -1,4 +1,4 @@
-
+#include "MiniTriton/Conversion/LowerToGPU.h"
 #include "MiniTriton/IR/MiniTritonOps.h"
 #include "MiniTriton/IR/MiniTritonGPUOps.h"
 
@@ -39,6 +39,33 @@ namespace mini_triton
         return mlir::applyPatternsGreedily(
             module.getOperation(),
             mlir::FrozenRewritePatternSet(std::move(patterns)));
+    }
+
+    struct LowerToGPUPass
+        : mlir::PassWrapper<
+              LowerToGPUPass,
+              mlir::OperationPass<mlir::ModuleOp>>
+    {
+
+        MLIR_DEFINE_EXPLICIT_INTERNAL_INLINE_TYPE_ID(LowerToGPUPass)
+
+        void getDependentDialects(mlir::DialectRegistry &registry) const override
+        {
+            registry.insert<gpu::MiniTritonGPUDialect>();
+        }
+
+        void runOnOperation() override
+        {
+            if (mlir::failed(lowerToGPU(getOperation())))
+            {
+                signalPassFailure();
+            }
+        }
+    };
+
+    std::unique_ptr<mlir::Pass> createLowerToGPUPass()
+    {
+        return std::make_unique<LowerToGPUPass>();
     }
 
 } // namespace mini_triton

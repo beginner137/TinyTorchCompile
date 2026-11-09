@@ -11,6 +11,7 @@
 #include "mlir/IR/Verifier.h"
 #include "MiniTriton/IR/MiniTritonGPUOps.h"
 #include "MiniTriton/Conversion/LowerToGPU.h"
+#include "mlir/Pass/PassManager.h"
 
 int main()
 {
@@ -48,12 +49,28 @@ int main()
     module.print(llvm::outs());
     llvm::outs() << "\n";
 
-    if (mlir::failed(mini_triton::lowerToGPU(module)))
+    auto printReturnProducer = [&]()
+    {
+        module.walk([](mlir::func::ReturnOp ret)
+                    {
+        auto *producer =
+            ret.getOperand(0).getDefiningOp();
+
+        llvm::outs() << "Return value produced by: "
+                     << producer->getName() << "\n"; });
+    };
+
+    printReturnProducer(); // Before lowering
+
+    mlir::PassManager pm(&context);
+    pm.addPass(mini_triton::createLowerToGPUPass());
+    if (mlir::failed(pm.run(module)))
     {
         llvm::errs() << "GPU lowering failed\n";
         return 1;
     }
 
+    printReturnProducer(); // After lowering
     module.print(llvm::outs());
     return 0;
 }

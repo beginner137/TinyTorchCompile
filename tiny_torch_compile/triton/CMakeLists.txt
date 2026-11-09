@@ -1,5 +1,9 @@
 
 cmake_minimum_required(VERSION 3.20)
+# Deduplicate libraries when the platform linker supports it (CMake 3.29+).
+if(POLICY CMP0156)
+    cmake_policy(SET CMP0156 NEW)
+endif()
 project(MiniTriton LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -93,4 +97,5 @@ target_sources(mini_triton PRIVATE
 
 target_link_libraries(mini_triton PRIVATE
     MLIRTransformUtils
+    MLIRPass
 )

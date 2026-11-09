@@ -1,11 +1,11 @@
 # ninja log v7
-7	1204	1794199777410729891	CMakeFiles/mini_triton.dir/main.cpp.o	df15db9dc8d09845
-1204	1421	1794199778608059950	mini_triton	a988bf1b3e18df56
-5	263	1794200451279737916	build.ninja	af2e92027858a563
-5	263	1794200451278679530	/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/cmake_install.cmake	af2e92027858a563
-116	1554	1794199712081040237	CMakeFiles/mini_triton.dir/lib/MiniTritonDialect.cpp.o	7331d1c26bb99f19
-116	1570	1794199712081183280	CMakeFiles/mini_triton.dir/lib/MiniTritonOps.cpp.o	6cc681f2dee6e4f4
-116	1833	1794199712081422241	CMakeFiles/mini_triton.dir/lib/Frontend/Frontend.cpp.o	2fa5223823689879
+22	1709	1794201160792817513	CMakeFiles/mini_triton.dir/main.cpp.o	ba271d6e0e926aed
+1709	1889	1794201162480097923	mini_triton	12dd507990e53162
+3	234	1794201199800416710	build.ninja	af2e92027858a563
+3	234	1794201199799354283	/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/cmake_install.cmake	af2e92027858a563
+27	1650	1794201106984837387	CMakeFiles/mini_triton.dir/lib/MiniTritonDialect.cpp.o	3765f942aeb51f5d
+27	1681	1794201106984989805	CMakeFiles/mini_triton.dir/lib/MiniTritonOps.cpp.o	42e24dfbab049ef0
+28	1918	1794201106985124140	CMakeFiles/mini_triton.dir/lib/Frontend/Frontend.cpp.o	ff8c083546bd7e6f
 7	27	1794031105925913819	include/MiniTriton/IR/MiniTritonOps.cpp.inc	57c4aad1254f101b
 7	27	1794031105925913819	/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/include/MiniTriton/IR/MiniTritonOps.cpp.inc	57c4aad1254f101b
 7	27	1794031105926048027	include/MiniTriton/IR/MiniTritonOps.h.inc	ecae9b246b5f0cc0
@@ -22,10 +22,10 @@
 3	72	1794103068190993285	/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/include/MiniTriton/IR/MiniTritonGPUDialect.h.inc	514aab56ff95d746
 41	115	1794199712006580840	include/MiniTriton/IR/MiniTritonGPUOps.h.inc	700141f3f10a96b6
 41	115	1794199712006580840	/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/include/MiniTriton/IR/MiniTritonGPUOps.h.inc	700141f3f10a96b6
-7	1261	1794199768838060124	CMakeFiles/mini_triton.dir/lib/MiniTritonGPUDialect.cpp.o	e95b8223fcc60714
-7	1345	1794199768838217792	CMakeFiles/mini_triton.dir/lib/MiniTritonGPUOps.cpp.o	15c63915e935a783
-3	238	1794200451279737916	build.ninja	af2e92027858a563
-3	238	1794200451279737916	/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/cmake_install.cmake	af2e92027858a563
-17	1319	1794200451305776524	CMakeFiles/mini_triton.dir/lib/Conversion/LowerToGPU.cpp.o	d4d3e32d1f23e45c
-21	1350	1794200483277552944	CMakeFiles/mini_triton.dir/main.cpp.o	df15db9dc8d09845
-1350	1532	1794200484606353831	mini_triton	94ab18414da53f80
+28	1705	1794201106985256975	CMakeFiles/mini_triton.dir/lib/MiniTritonGPUDialect.cpp.o	575213cc10900c6e
+28	1747	1794201106985399101	CMakeFiles/mini_triton.dir/lib/MiniTritonGPUOps.cpp.o	ea2df482796d1785
+28	2071	1794201106985537602	CMakeFiles/mini_triton.dir/lib/Conversion/LowerToGPU.cpp.o	e95db364248b6564
+6	246	1794201199800416710	build.ninja	af2e92027858a563
+6	246	1794201199800416710	/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/cmake_install.cmake	af2e92027858a563
+27	1820	1794201199835125962	CMakeFiles/mini_triton.dir/main.cpp.o	ba271d6e0e926aed
+1820	2006	1794201201628290022	mini_triton	8a49bf55d0fb77ed
