@@ -93,7 +93,7 @@ build mlir-doc: phony
 #############################################
 # Utility command for MiniTritonIncGen
 
-build MiniTritonIncGen: phony CMakeFiles/MiniTritonIncGen include/MiniTriton/IR/MiniTritonDialect.cpp.inc include/MiniTriton/IR/MiniTritonDialect.h.inc include/MiniTriton/IR/MiniTritonGPUDialect.cpp.inc include/MiniTriton/IR/MiniTritonGPUDialect.h.inc include/MiniTriton/IR/MiniTritonGPUOps.cpp.inc include/MiniTriton/IR/MiniTritonGPUOps.h.inc include/MiniTriton/IR/MiniTritonOps.cpp.inc include/MiniTriton/IR/MiniTritonOps.h.inc
+build MiniTritonIncGen: phony CMakeFiles/MiniTritonIncGen include/MiniTriton/IR/MiniTritonDialect.cpp.inc include/MiniTriton/IR/MiniTritonDialect.h.inc include/MiniTriton/IR/MiniTritonGPUDialect.cpp.inc include/MiniTriton/IR/MiniTritonGPUDialect.h.inc include/MiniTriton/IR/MiniTritonGPUOps.cpp.inc include/MiniTriton/IR/MiniTritonGPUOps.h.inc include/MiniTriton/IR/MiniTritonOps.cpp.inc include/MiniTriton/IR/MiniTritonOps.h.inc include/MiniTriton/IR/MiniTritonTypes.cpp.inc include/MiniTriton/IR/MiniTritonTypes.h.inc
 
 # =============================================================================
 # Object build statements for EXECUTABLE target mini_triton
@@ -122,6 +122,14 @@ build CMakeFiles/mini_triton.dir/lib/MiniTritonDialect.cpp.o: CXX_COMPILER__mini
 
 build CMakeFiles/mini_triton.dir/lib/MiniTritonOps.cpp.o: CXX_COMPILER__mini_triton_unscanned_ /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/lib/MiniTritonOps.cpp || cmake_object_order_depends_target_mini_triton
   DEP_FILE = CMakeFiles/mini_triton.dir/lib/MiniTritonOps.cpp.o.d
+  FLAGS = -std=gnu++17
+  INCLUDES = -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/include -I/opt/homebrew/Cellar/llvm/23.1.5/include -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include
+  OBJECT_DIR = CMakeFiles/mini_triton.dir
+  OBJECT_FILE_DIR = CMakeFiles/mini_triton.dir/lib
+  TARGET_SUPPORT_DIR = CMakeFiles/mini_triton.dir
+
+build CMakeFiles/mini_triton.dir/lib/MiniTritonTypes.cpp.o: CXX_COMPILER__mini_triton_unscanned_ /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/lib/MiniTritonTypes.cpp || cmake_object_order_depends_target_mini_triton
+  DEP_FILE = CMakeFiles/mini_triton.dir/lib/MiniTritonTypes.cpp.o.d
   FLAGS = -std=gnu++17
   INCLUDES = -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/include -I/opt/homebrew/Cellar/llvm/23.1.5/include -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include
   OBJECT_DIR = CMakeFiles/mini_triton.dir
@@ -168,7 +176,7 @@ build CMakeFiles/mini_triton.dir/lib/Conversion/LowerToGPU.cpp.o: CXX_COMPILER__
 #############################################
 # Link the executable mini_triton
 
-build mini_triton: CXX_EXECUTABLE_LINKER__mini_triton_ CMakeFiles/mini_triton.dir/main.cpp.o CMakeFiles/mini_triton.dir/lib/MiniTritonDialect.cpp.o CMakeFiles/mini_triton.dir/lib/MiniTritonOps.cpp.o CMakeFiles/mini_triton.dir/lib/Frontend/Frontend.cpp.o CMakeFiles/mini_triton.dir/lib/MiniTritonGPUDialect.cpp.o CMakeFiles/mini_triton.dir/lib/MiniTritonGPUOps.cpp.o CMakeFiles/mini_triton.dir/lib/Conversion/LowerToGPU.cpp.o | /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRFuncDialect.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRTransformUtils.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSubsetOpInterface.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRValueBoundsOpInterface.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRDestinationStyleOpInterface.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRRewrite.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRRewritePDL.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRPDLToPDLInterp.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRPass.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRAnalysis.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRLoopLikeInterface.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRControlFlowInterfaces.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRDataLayoutInterfaces.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRDialectUtils.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRInferIntDivisibilityOpInterface.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRInferStridedMetadataInterface.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRInferIntRangeInterface.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRPresburger.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRViewLikeInterface.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRPDLInterpDialect.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRFunctionInterfaces.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRCallInterfaces.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRPDLDialect.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRInferTypeOpInterface.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSideEffectInterfaces.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRIR.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSupport.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libLLVM.23.1.dylib || MiniTritonIncGen
+build mini_triton: CXX_EXECUTABLE_LINKER__mini_triton_ CMakeFiles/mini_triton.dir/main.cpp.o CMakeFiles/mini_triton.dir/lib/MiniTritonDialect.cpp.o CMakeFiles/mini_triton.dir/lib/MiniTritonOps.cpp.o CMakeFiles/mini_triton.dir/lib/MiniTritonTypes.cpp.o CMakeFiles/mini_triton.dir/lib/Frontend/Frontend.cpp.o CMakeFiles/mini_triton.dir/lib/MiniTritonGPUDialect.cpp.o CMakeFiles/mini_triton.dir/lib/MiniTritonGPUOps.cpp.o CMakeFiles/mini_triton.dir/lib/Conversion/LowerToGPU.cpp.o | /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRFuncDialect.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRTransformUtils.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSubsetOpInterface.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRValueBoundsOpInterface.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRDestinationStyleOpInterface.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRRewrite.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRRewritePDL.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRPDLToPDLInterp.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRPass.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRAnalysis.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRLoopLikeInterface.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRControlFlowInterfaces.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRDataLayoutInterfaces.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRDialectUtils.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRInferIntDivisibilityOpInterface.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRInferStridedMetadataInterface.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRInferIntRangeInterface.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRPresburger.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRViewLikeInterface.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRPDLInterpDialect.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRFunctionInterfaces.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRCallInterfaces.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRPDLDialect.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRInferTypeOpInterface.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSideEffectInterfaces.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRIR.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSupport.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libLLVM.23.1.dylib || MiniTritonIncGen
   LINK_FLAGS = -Wl,-search_paths_first -Wl,-headerpad_max_install_names
   LINK_LIBRARIES = -Wl,-rpath,/opt/homebrew/Cellar/llvm/23.1.5/lib  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRFuncDialect.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRTransformUtils.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSubsetOpInterface.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRValueBoundsOpInterface.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRDestinationStyleOpInterface.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRRewrite.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRRewritePDL.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRPDLToPDLInterp.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRPass.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRAnalysis.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRLoopLikeInterface.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRControlFlowInterfaces.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRDataLayoutInterfaces.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRDialectUtils.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRInferIntDivisibilityOpInterface.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRInferStridedMetadataInterface.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRInferIntRangeInterface.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRPresburger.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRViewLikeInterface.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRPDLInterpDialect.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRFunctionInterfaces.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRCallInterfaces.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRPDLDialect.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRInferTypeOpInterface.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSideEffectInterfaces.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRIR.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSupport.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libLLVM.23.1.dylib
   OBJECT_DIR = CMakeFiles/mini_triton.dir
@@ -177,6 +185,245 @@ build mini_triton: CXX_EXECUTABLE_LINKER__mini_triton_ CMakeFiles/mini_triton.di
   TARGET_FILE = mini_triton
   TARGET_PDB = mini_triton.dbg
   TARGET_SUPPORT_DIR = CMakeFiles/mini_triton.dir
+
+
+#############################################
+# Utility command for Experimental
+
+build Experimental: phony CMakeFiles/Experimental
+
+
+#############################################
+# Utility command for Nightly
+
+build Nightly: phony CMakeFiles/Nightly
+
+
+#############################################
+# Utility command for Continuous
+
+build Continuous: phony CMakeFiles/Continuous
+
+
+#############################################
+# Utility command for NightlyMemoryCheck
+
+build NightlyMemoryCheck: phony CMakeFiles/NightlyMemoryCheck
+
+
+#############################################
+# Utility command for NightlyStart
+
+build NightlyStart: phony CMakeFiles/NightlyStart
+
+
+#############################################
+# Utility command for NightlyUpdate
+
+build NightlyUpdate: phony CMakeFiles/NightlyUpdate
+
+
+#############################################
+# Utility command for NightlyConfigure
+
+build NightlyConfigure: phony CMakeFiles/NightlyConfigure
+
+
+#############################################
+# Utility command for NightlyBuild
+
+build NightlyBuild: phony CMakeFiles/NightlyBuild
+
+
+#############################################
+# Utility command for NightlyTest
+
+build NightlyTest: phony CMakeFiles/NightlyTest
+
+
+#############################################
+# Utility command for NightlyCoverage
+
+build NightlyCoverage: phony CMakeFiles/NightlyCoverage
+
+
+#############################################
+# Utility command for NightlyMemCheck
+
+build NightlyMemCheck: phony CMakeFiles/NightlyMemCheck
+
+
+#############################################
+# Utility command for NightlySubmit
+
+build NightlySubmit: phony CMakeFiles/NightlySubmit
+
+
+#############################################
+# Utility command for ExperimentalStart
+
+build ExperimentalStart: phony CMakeFiles/ExperimentalStart
+
+
+#############################################
+# Utility command for ExperimentalUpdate
+
+build ExperimentalUpdate: phony CMakeFiles/ExperimentalUpdate
+
+
+#############################################
+# Utility command for ExperimentalConfigure
+
+build ExperimentalConfigure: phony CMakeFiles/ExperimentalConfigure
+
+
+#############################################
+# Utility command for ExperimentalBuild
+
+build ExperimentalBuild: phony CMakeFiles/ExperimentalBuild
+
+
+#############################################
+# Utility command for ExperimentalTest
+
+build ExperimentalTest: phony CMakeFiles/ExperimentalTest
+
+
+#############################################
+# Utility command for ExperimentalCoverage
+
+build ExperimentalCoverage: phony CMakeFiles/ExperimentalCoverage
+
+
+#############################################
+# Utility command for ExperimentalMemCheck
+
+build ExperimentalMemCheck: phony CMakeFiles/ExperimentalMemCheck
+
+
+#############################################
+# Utility command for ExperimentalSubmit
+
+build ExperimentalSubmit: phony CMakeFiles/ExperimentalSubmit
+
+
+#############################################
+# Utility command for ContinuousStart
+
+build ContinuousStart: phony CMakeFiles/ContinuousStart
+
+
+#############################################
+# Utility command for ContinuousUpdate
+
+build ContinuousUpdate: phony CMakeFiles/ContinuousUpdate
+
+
+#############################################
+# Utility command for ContinuousConfigure
+
+build ContinuousConfigure: phony CMakeFiles/ContinuousConfigure
+
+
+#############################################
+# Utility command for ContinuousBuild
+
+build ContinuousBuild: phony CMakeFiles/ContinuousBuild
+
+
+#############################################
+# Utility command for ContinuousTest
+
+build ContinuousTest: phony CMakeFiles/ContinuousTest
+
+
+#############################################
+# Utility command for ContinuousCoverage
+
+build ContinuousCoverage: phony CMakeFiles/ContinuousCoverage
+
+
+#############################################
+# Utility command for ContinuousMemCheck
+
+build ContinuousMemCheck: phony CMakeFiles/ContinuousMemCheck
+
+
+#############################################
+# Utility command for ContinuousSubmit
+
+build ContinuousSubmit: phony CMakeFiles/ContinuousSubmit
+
+# =============================================================================
+# Object build statements for EXECUTABLE target mini_ttir_tests
+
+
+#############################################
+# Order-only phony target for mini_ttir_tests
+
+build cmake_object_order_depends_target_mini_ttir_tests: phony || MiniTritonIncGen
+
+build CMakeFiles/mini_ttir_tests.dir/tests/TTIROpsTest.cpp.o: CXX_COMPILER__mini_ttir_tests_unscanned_ /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/tests/TTIROpsTest.cpp || cmake_object_order_depends_target_mini_ttir_tests
+  DEP_FILE = CMakeFiles/mini_ttir_tests.dir/tests/TTIROpsTest.cpp.o.d
+  FLAGS = -std=gnu++17
+  INCLUDES = -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/include -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include -I/opt/homebrew/Cellar/llvm/23.1.5/include
+  OBJECT_DIR = CMakeFiles/mini_ttir_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/mini_ttir_tests.dir/tests
+  TARGET_SUPPORT_DIR = CMakeFiles/mini_ttir_tests.dir
+
+build CMakeFiles/mini_ttir_tests.dir/lib/MiniTritonDialect.cpp.o: CXX_COMPILER__mini_ttir_tests_unscanned_ /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/lib/MiniTritonDialect.cpp || cmake_object_order_depends_target_mini_ttir_tests
+  DEP_FILE = CMakeFiles/mini_ttir_tests.dir/lib/MiniTritonDialect.cpp.o.d
+  FLAGS = -std=gnu++17
+  INCLUDES = -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/include -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include -I/opt/homebrew/Cellar/llvm/23.1.5/include
+  OBJECT_DIR = CMakeFiles/mini_ttir_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/mini_ttir_tests.dir/lib
+  TARGET_SUPPORT_DIR = CMakeFiles/mini_ttir_tests.dir
+
+build CMakeFiles/mini_ttir_tests.dir/lib/MiniTritonTypes.cpp.o: CXX_COMPILER__mini_ttir_tests_unscanned_ /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/lib/MiniTritonTypes.cpp || cmake_object_order_depends_target_mini_ttir_tests
+  DEP_FILE = CMakeFiles/mini_ttir_tests.dir/lib/MiniTritonTypes.cpp.o.d
+  FLAGS = -std=gnu++17
+  INCLUDES = -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/include -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include -I/opt/homebrew/Cellar/llvm/23.1.5/include
+  OBJECT_DIR = CMakeFiles/mini_ttir_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/mini_ttir_tests.dir/lib
+  TARGET_SUPPORT_DIR = CMakeFiles/mini_ttir_tests.dir
+
+build CMakeFiles/mini_ttir_tests.dir/lib/MiniTritonOps.cpp.o: CXX_COMPILER__mini_ttir_tests_unscanned_ /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/lib/MiniTritonOps.cpp || cmake_object_order_depends_target_mini_ttir_tests
+  DEP_FILE = CMakeFiles/mini_ttir_tests.dir/lib/MiniTritonOps.cpp.o.d
+  FLAGS = -std=gnu++17
+  INCLUDES = -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/include -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include -I/opt/homebrew/Cellar/llvm/23.1.5/include
+  OBJECT_DIR = CMakeFiles/mini_ttir_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/mini_ttir_tests.dir/lib
+  TARGET_SUPPORT_DIR = CMakeFiles/mini_ttir_tests.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target mini_ttir_tests
+
+
+#############################################
+# Link the executable mini_ttir_tests
+
+build mini_ttir_tests: CXX_EXECUTABLE_LINKER__mini_ttir_tests_ CMakeFiles/mini_ttir_tests.dir/tests/TTIROpsTest.cpp.o CMakeFiles/mini_ttir_tests.dir/lib/MiniTritonDialect.cpp.o CMakeFiles/mini_ttir_tests.dir/lib/MiniTritonTypes.cpp.o CMakeFiles/mini_ttir_tests.dir/lib/MiniTritonOps.cpp.o | /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRParser.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRArithDialect.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRFuncDialect.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRBytecodeReader.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRAsmParser.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRCastInterfaces.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRDialect.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRInferIntDivisibilityOpInterface.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRInferIntRangeCommon.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRShapedOpInterfaces.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRInferIntRangeInterface.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRUBDialect.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRInferTypeOpInterface.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRControlFlowInterfaces.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRFunctionInterfaces.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRCallInterfaces.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSideEffectInterfaces.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRIR.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSupport.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libLLVM.23.1.dylib || MiniTritonIncGen
+  LINK_FLAGS = -Wl,-search_paths_first -Wl,-headerpad_max_install_names
+  LINK_LIBRARIES = -Wl,-rpath,/opt/homebrew/Cellar/llvm/23.1.5/lib  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRParser.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRArithDialect.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRFuncDialect.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRBytecodeReader.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRAsmParser.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRCastInterfaces.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRDialect.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRInferIntDivisibilityOpInterface.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRInferIntRangeCommon.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRShapedOpInterfaces.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRInferIntRangeInterface.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRUBDialect.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRInferTypeOpInterface.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRControlFlowInterfaces.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRFunctionInterfaces.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRCallInterfaces.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSideEffectInterfaces.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRIR.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSupport.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libLLVM.23.1.dylib
+  OBJECT_DIR = CMakeFiles/mini_ttir_tests.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = mini_ttir_tests
+  TARGET_PDB = mini_ttir_tests.dbg
+  TARGET_SUPPORT_DIR = CMakeFiles/mini_ttir_tests.dir
+
+
+#############################################
+# Utility command for test
+
+build CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/bin/ctest
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build test: phony CMakeFiles/test.util
 
 
 #############################################
@@ -206,7 +453,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Phony custom command for CMakeFiles/MiniTritonIncGen
 
-build CMakeFiles/MiniTritonIncGen | ${cmake_ninja_workdir}CMakeFiles/MiniTritonIncGen: phony include/MiniTriton/IR/MiniTritonOps.h.inc include/MiniTriton/IR/MiniTritonOps.cpp.inc include/MiniTriton/IR/MiniTritonDialect.h.inc include/MiniTriton/IR/MiniTritonDialect.cpp.inc include/MiniTriton/IR/MiniTritonGPUOps.h.inc include/MiniTriton/IR/MiniTritonGPUOps.cpp.inc include/MiniTriton/IR/MiniTritonGPUDialect.h.inc include/MiniTriton/IR/MiniTritonGPUDialect.cpp.inc
+build CMakeFiles/MiniTritonIncGen | ${cmake_ninja_workdir}CMakeFiles/MiniTritonIncGen: phony include/MiniTriton/IR/MiniTritonOps.h.inc include/MiniTriton/IR/MiniTritonOps.cpp.inc include/MiniTriton/IR/MiniTritonDialect.h.inc include/MiniTriton/IR/MiniTritonDialect.cpp.inc include/MiniTriton/IR/MiniTritonGPUOps.h.inc include/MiniTriton/IR/MiniTritonGPUOps.cpp.inc include/MiniTriton/IR/MiniTritonGPUDialect.h.inc include/MiniTriton/IR/MiniTritonGPUDialect.cpp.inc include/MiniTriton/IR/MiniTritonTypes.h.inc include/MiniTriton/IR/MiniTritonTypes.cpp.inc
 
 
 #############################################
@@ -296,6 +543,252 @@ build include/MiniTriton/IR/MiniTritonOps.h.inc | ${cmake_ninja_workdir}include/
   deps = gcc
   restat = 1
 
+
+#############################################
+# Custom command for include/MiniTriton/IR/MiniTritonTypes.cpp.inc
+
+build include/MiniTriton/IR/MiniTritonTypes.cpp.inc | ${cmake_ninja_workdir}include/MiniTriton/IR/MiniTritonTypes.cpp.inc: CUSTOM_COMMAND /opt/homebrew/Cellar/llvm/23.1.5/bin/mlir-tblgen /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include/MiniTriton/IR/MiniTritonTypes.td
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/Cellar/llvm/23.1.5/bin/mlir-tblgen -gen-typedef-defs -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include -I/opt/homebrew/Cellar/llvm/23.1.5/include -I/opt/homebrew/Cellar/llvm/23.1.5/include /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include/MiniTriton/IR/MiniTritonTypes.td --write-if-changed -o include/MiniTriton/IR/MiniTritonTypes.cpp.inc -d include/MiniTriton/IR/MiniTritonTypes.cpp.inc.d && /opt/homebrew/bin/cmake -E cmake_transform_depfile Ninja gccdepfile /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/include/MiniTriton/IR/MiniTritonTypes.cpp.inc.d /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/CMakeFiles/d/cb4433793553058f1700574ed0074c9f70f6d50bd3a19583d4c692003e374583.d
+  DESC = Building include/MiniTriton/IR/MiniTritonTypes.cpp.inc...
+  depfile = CMakeFiles/d/cb4433793553058f1700574ed0074c9f70f6d50bd3a19583d4c692003e374583.d
+  deps = gcc
+  restat = 1
+
+
+#############################################
+# Custom command for include/MiniTriton/IR/MiniTritonTypes.h.inc
+
+build include/MiniTriton/IR/MiniTritonTypes.h.inc | ${cmake_ninja_workdir}include/MiniTriton/IR/MiniTritonTypes.h.inc: CUSTOM_COMMAND /opt/homebrew/Cellar/llvm/23.1.5/bin/mlir-tblgen /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include/MiniTriton/IR/MiniTritonTypes.td
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/Cellar/llvm/23.1.5/bin/mlir-tblgen -gen-typedef-decls -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include -I/opt/homebrew/Cellar/llvm/23.1.5/include -I/opt/homebrew/Cellar/llvm/23.1.5/include /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include/MiniTriton/IR/MiniTritonTypes.td --write-if-changed -o include/MiniTriton/IR/MiniTritonTypes.h.inc -d include/MiniTriton/IR/MiniTritonTypes.h.inc.d && /opt/homebrew/bin/cmake -E cmake_transform_depfile Ninja gccdepfile /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/include/MiniTriton/IR/MiniTritonTypes.h.inc.d /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/CMakeFiles/d/74516a0a860a74696f75d8d263274f2252b2adb2df30d1baa073c8f693da1d65.d
+  DESC = Building include/MiniTriton/IR/MiniTritonTypes.h.inc...
+  depfile = CMakeFiles/d/74516a0a860a74696f75d8d263274f2252b2adb2df30d1baa073c8f693da1d65.d
+  deps = gcc
+  restat = 1
+
+
+#############################################
+# Custom command for CMakeFiles/Experimental
+
+build CMakeFiles/Experimental | ${cmake_ninja_workdir}CMakeFiles/Experimental: CUSTOM_COMMAND
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/bin/ctest -DMODEL=Experimental -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/Nightly
+
+build CMakeFiles/Nightly | ${cmake_ninja_workdir}CMakeFiles/Nightly: CUSTOM_COMMAND
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/bin/ctest -DMODEL=Nightly -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/Continuous
+
+build CMakeFiles/Continuous | ${cmake_ninja_workdir}CMakeFiles/Continuous: CUSTOM_COMMAND
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/bin/ctest -DMODEL=Continuous -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/NightlyMemoryCheck
+
+build CMakeFiles/NightlyMemoryCheck | ${cmake_ninja_workdir}CMakeFiles/NightlyMemoryCheck: CUSTOM_COMMAND
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/bin/ctest -DMODEL=NightlyMemoryCheck -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/NightlyStart
+
+build CMakeFiles/NightlyStart | ${cmake_ninja_workdir}CMakeFiles/NightlyStart: CUSTOM_COMMAND
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/bin/ctest -DMODEL=Nightly -DACTIONS=Start -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/NightlyUpdate
+
+build CMakeFiles/NightlyUpdate | ${cmake_ninja_workdir}CMakeFiles/NightlyUpdate: CUSTOM_COMMAND
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/bin/ctest -DMODEL=Nightly -DACTIONS=Update -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/NightlyConfigure
+
+build CMakeFiles/NightlyConfigure | ${cmake_ninja_workdir}CMakeFiles/NightlyConfigure: CUSTOM_COMMAND
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/bin/ctest -DMODEL=Nightly -DACTIONS=Configure -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/NightlyBuild
+
+build CMakeFiles/NightlyBuild | ${cmake_ninja_workdir}CMakeFiles/NightlyBuild: CUSTOM_COMMAND
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/bin/ctest -DMODEL=Nightly -DACTIONS=Build -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/NightlyTest
+
+build CMakeFiles/NightlyTest | ${cmake_ninja_workdir}CMakeFiles/NightlyTest: CUSTOM_COMMAND
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/bin/ctest -DMODEL=Nightly -DACTIONS=Test -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/NightlyCoverage
+
+build CMakeFiles/NightlyCoverage | ${cmake_ninja_workdir}CMakeFiles/NightlyCoverage: CUSTOM_COMMAND
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/bin/ctest -DMODEL=Nightly -DACTIONS=Coverage -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/NightlyMemCheck
+
+build CMakeFiles/NightlyMemCheck | ${cmake_ninja_workdir}CMakeFiles/NightlyMemCheck: CUSTOM_COMMAND
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/bin/ctest -DMODEL=Nightly -DACTIONS=MemCheck -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/NightlySubmit
+
+build CMakeFiles/NightlySubmit | ${cmake_ninja_workdir}CMakeFiles/NightlySubmit: CUSTOM_COMMAND
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/bin/ctest -DMODEL=Nightly -DACTIONS=Submit -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ExperimentalStart
+
+build CMakeFiles/ExperimentalStart | ${cmake_ninja_workdir}CMakeFiles/ExperimentalStart: CUSTOM_COMMAND
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/bin/ctest -DMODEL=Experimental -DACTIONS=Start -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ExperimentalUpdate
+
+build CMakeFiles/ExperimentalUpdate | ${cmake_ninja_workdir}CMakeFiles/ExperimentalUpdate: CUSTOM_COMMAND
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/bin/ctest -DMODEL=Experimental -DACTIONS=Update -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ExperimentalConfigure
+
+build CMakeFiles/ExperimentalConfigure | ${cmake_ninja_workdir}CMakeFiles/ExperimentalConfigure: CUSTOM_COMMAND
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/bin/ctest -DMODEL=Experimental -DACTIONS=Configure -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ExperimentalBuild
+
+build CMakeFiles/ExperimentalBuild | ${cmake_ninja_workdir}CMakeFiles/ExperimentalBuild: CUSTOM_COMMAND
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/bin/ctest -DMODEL=Experimental -DACTIONS=Build -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ExperimentalTest
+
+build CMakeFiles/ExperimentalTest | ${cmake_ninja_workdir}CMakeFiles/ExperimentalTest: CUSTOM_COMMAND
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/bin/ctest -DMODEL=Experimental -DACTIONS=Test -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ExperimentalCoverage
+
+build CMakeFiles/ExperimentalCoverage | ${cmake_ninja_workdir}CMakeFiles/ExperimentalCoverage: CUSTOM_COMMAND
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/bin/ctest -DMODEL=Experimental -DACTIONS=Coverage -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ExperimentalMemCheck
+
+build CMakeFiles/ExperimentalMemCheck | ${cmake_ninja_workdir}CMakeFiles/ExperimentalMemCheck: CUSTOM_COMMAND
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/bin/ctest -DMODEL=Experimental -DACTIONS=MemCheck -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ExperimentalSubmit
+
+build CMakeFiles/ExperimentalSubmit | ${cmake_ninja_workdir}CMakeFiles/ExperimentalSubmit: CUSTOM_COMMAND
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/bin/ctest -DMODEL=Experimental -DACTIONS=Submit -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ContinuousStart
+
+build CMakeFiles/ContinuousStart | ${cmake_ninja_workdir}CMakeFiles/ContinuousStart: CUSTOM_COMMAND
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/bin/ctest -DMODEL=Continuous -DACTIONS=Start -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ContinuousUpdate
+
+build CMakeFiles/ContinuousUpdate | ${cmake_ninja_workdir}CMakeFiles/ContinuousUpdate: CUSTOM_COMMAND
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/bin/ctest -DMODEL=Continuous -DACTIONS=Update -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ContinuousConfigure
+
+build CMakeFiles/ContinuousConfigure | ${cmake_ninja_workdir}CMakeFiles/ContinuousConfigure: CUSTOM_COMMAND
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/bin/ctest -DMODEL=Continuous -DACTIONS=Configure -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ContinuousBuild
+
+build CMakeFiles/ContinuousBuild | ${cmake_ninja_workdir}CMakeFiles/ContinuousBuild: CUSTOM_COMMAND
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/bin/ctest -DMODEL=Continuous -DACTIONS=Build -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ContinuousTest
+
+build CMakeFiles/ContinuousTest | ${cmake_ninja_workdir}CMakeFiles/ContinuousTest: CUSTOM_COMMAND
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/bin/ctest -DMODEL=Continuous -DACTIONS=Test -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ContinuousCoverage
+
+build CMakeFiles/ContinuousCoverage | ${cmake_ninja_workdir}CMakeFiles/ContinuousCoverage: CUSTOM_COMMAND
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/bin/ctest -DMODEL=Continuous -DACTIONS=Coverage -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ContinuousMemCheck
+
+build CMakeFiles/ContinuousMemCheck | ${cmake_ninja_workdir}CMakeFiles/ContinuousMemCheck: CUSTOM_COMMAND
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/bin/ctest -DMODEL=Continuous -DACTIONS=MemCheck -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ContinuousSubmit
+
+build CMakeFiles/ContinuousSubmit | ${cmake_ninja_workdir}CMakeFiles/ContinuousSubmit: CUSTOM_COMMAND
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/bin/ctest -DMODEL=Continuous -DACTIONS=Submit -S CMakeFiles/CTestScript.cmake -V
+  pool = console
+
 # =============================================================================
 # Target aliases.
 
@@ -307,7 +800,7 @@ build include/MiniTriton/IR/MiniTritonOps.h.inc | ${cmake_ninja_workdir}include/
 #############################################
 # Folder: /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build
 
-build all: phony mini_triton
+build all: phony mini_triton mini_ttir_tests
 
 # =============================================================================
 # Built-in targets
@@ -316,14 +809,14 @@ build all: phony mini_triton
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/cmake_install.cmake: RERUN_CMAKE | /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/CMakeLists.txt /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/FindFFI.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/FindLibEdit.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/FindLibXml2.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/Findzstd.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/LLVM-Config.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/LLVMConfig.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/LLVMConfigVersion.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/LLVMDistributionSupport.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/LLVMExports-release.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/LLVMExports.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/TableGen.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/mlir/MLIRTargets-release.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/mlir/MLIRTargets.cmake /opt/homebrew/opt/llvm/lib/cmake/mlir/MLIRConfig.cmake /opt/homebrew/opt/llvm/lib/cmake/mlir/MLIRConfigVersion.cmake /opt/homebrew/share/cmake/Modules/CMakeCInformation.cmake /opt/homebrew/share/cmake/Modules/CMakeCXXInformation.cmake /opt/homebrew/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /opt/homebrew/share/cmake/Modules/CMakeGenericSystem.cmake /opt/homebrew/share/cmake/Modules/CMakeInitializeConfigs.cmake /opt/homebrew/share/cmake/Modules/CMakeLanguageInformation.cmake /opt/homebrew/share/cmake/Modules/CMakePushCheckState.cmake /opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /opt/homebrew/share/cmake/Modules/CheckCSourceCompiles.cmake /opt/homebrew/share/cmake/Modules/CheckIncludeFile.cmake /opt/homebrew/share/cmake/Modules/Compiler/AppleClang-C.cmake /opt/homebrew/share/cmake/Modules/Compiler/AppleClang-CXX.cmake /opt/homebrew/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /opt/homebrew/share/cmake/Modules/Compiler/Clang.cmake /opt/homebrew/share/cmake/Modules/Compiler/GNU.cmake /opt/homebrew/share/cmake/Modules/FindPackageHandleStandardArgs.cmake /opt/homebrew/share/cmake/Modules/FindPackageMessage.cmake /opt/homebrew/share/cmake/Modules/FindPkgConfig.cmake /opt/homebrew/share/cmake/Modules/FindZLIB.cmake /opt/homebrew/share/cmake/Modules/Internal/CMakeCLinkerInformation.cmake /opt/homebrew/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake /opt/homebrew/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake /opt/homebrew/share/cmake/Modules/Internal/CheckCommon.cmake /opt/homebrew/share/cmake/Modules/Internal/CheckSourceCompiles.cmake /opt/homebrew/share/cmake/Modules/Linker/AppleClang-C.cmake /opt/homebrew/share/cmake/Modules/Linker/AppleClang-CXX.cmake /opt/homebrew/share/cmake/Modules/Linker/AppleClang.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-AppleClang-C.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-AppleClang-CXX.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-Clang-C.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-Clang-CXX.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-Clang.cmake /opt/homebrew/share/cmake/Modules/Platform/Darwin-Initialize.cmake /opt/homebrew/share/cmake/Modules/Platform/Darwin.cmake /opt/homebrew/share/cmake/Modules/Platform/Linker/Apple-AppleClang-C.cmake /opt/homebrew/share/cmake/Modules/Platform/Linker/Apple-AppleClang-CXX.cmake /opt/homebrew/share/cmake/Modules/Platform/Linker/Apple-AppleClang.cmake /opt/homebrew/share/cmake/Modules/Platform/UnixPaths.cmake /opt/homebrew/share/cmake/Modules/SelectLibraryConfigurations.cmake CMakeCache.txt CMakeFiles/4.4.5/CMakeCCompiler.cmake CMakeFiles/4.4.5/CMakeCXXCompiler.cmake CMakeFiles/4.4.5/CMakeSystem.cmake
+build build.ninja /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/cmake_install.cmake /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/CTestTestfile.cmake: RERUN_CMAKE | /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/CMakeLists.txt /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/FindFFI.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/FindLibEdit.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/FindLibXml2.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/Findzstd.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/LLVM-Config.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/LLVMConfig.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/LLVMConfigVersion.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/LLVMDistributionSupport.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/LLVMExports-release.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/LLVMExports.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/TableGen.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/mlir/MLIRTargets-release.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/mlir/MLIRTargets.cmake /opt/homebrew/opt/llvm/lib/cmake/mlir/MLIRConfig.cmake /opt/homebrew/opt/llvm/lib/cmake/mlir/MLIRConfigVersion.cmake /opt/homebrew/share/cmake/Modules/CMakeCInformation.cmake /opt/homebrew/share/cmake/Modules/CMakeCXXInformation.cmake /opt/homebrew/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /opt/homebrew/share/cmake/Modules/CMakeGenericSystem.cmake /opt/homebrew/share/cmake/Modules/CMakeInitializeConfigs.cmake /opt/homebrew/share/cmake/Modules/CMakeLanguageInformation.cmake /opt/homebrew/share/cmake/Modules/CMakePushCheckState.cmake /opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /opt/homebrew/share/cmake/Modules/CTest.cmake /opt/homebrew/share/cmake/Modules/CTestTargets.cmake /opt/homebrew/share/cmake/Modules/CTestUseLaunchers.cmake /opt/homebrew/share/cmake/Modules/CheckCSourceCompiles.cmake /opt/homebrew/share/cmake/Modules/CheckIncludeFile.cmake /opt/homebrew/share/cmake/Modules/Compiler/AppleClang-C.cmake /opt/homebrew/share/cmake/Modules/Compiler/AppleClang-CXX.cmake /opt/homebrew/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /opt/homebrew/share/cmake/Modules/Compiler/Clang.cmake /opt/homebrew/share/cmake/Modules/Compiler/GNU.cmake /opt/homebrew/share/cmake/Modules/DartConfiguration.tcl.in /opt/homebrew/share/cmake/Modules/FindPackageHandleStandardArgs.cmake /opt/homebrew/share/cmake/Modules/FindPackageMessage.cmake /opt/homebrew/share/cmake/Modules/FindPkgConfig.cmake /opt/homebrew/share/cmake/Modules/FindZLIB.cmake /opt/homebrew/share/cmake/Modules/Internal/CMakeCLinkerInformation.cmake /opt/homebrew/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake /opt/homebrew/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake /opt/homebrew/share/cmake/Modules/Internal/CheckCommon.cmake /opt/homebrew/share/cmake/Modules/Internal/CheckSourceCompiles.cmake /opt/homebrew/share/cmake/Modules/Linker/AppleClang-C.cmake /opt/homebrew/share/cmake/Modules/Linker/AppleClang-CXX.cmake /opt/homebrew/share/cmake/Modules/Linker/AppleClang.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-AppleClang-C.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-AppleClang-CXX.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-Clang-C.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-Clang-CXX.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-Clang.cmake /opt/homebrew/share/cmake/Modules/Platform/Darwin-Initialize.cmake /opt/homebrew/share/cmake/Modules/Platform/Darwin.cmake /opt/homebrew/share/cmake/Modules/Platform/Linker/Apple-AppleClang-C.cmake /opt/homebrew/share/cmake/Modules/Platform/Linker/Apple-AppleClang-CXX.cmake /opt/homebrew/share/cmake/Modules/Platform/Linker/Apple-AppleClang.cmake /opt/homebrew/share/cmake/Modules/Platform/UnixPaths.cmake /opt/homebrew/share/cmake/Modules/SelectLibraryConfigurations.cmake /opt/homebrew/share/cmake/Templates/CTestScript.cmake.in CMakeCache.txt CMakeFiles/4.4.5/CMakeCCompiler.cmake CMakeFiles/4.4.5/CMakeCXXCompiler.cmake CMakeFiles/4.4.5/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/CMakeLists.txt /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/FindFFI.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/FindLibEdit.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/FindLibXml2.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/Findzstd.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/LLVM-Config.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/LLVMConfig.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/LLVMConfigVersion.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/LLVMDistributionSupport.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/LLVMExports-release.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/LLVMExports.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/TableGen.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/mlir/MLIRTargets-release.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/mlir/MLIRTargets.cmake /opt/homebrew/opt/llvm/lib/cmake/mlir/MLIRConfig.cmake /opt/homebrew/opt/llvm/lib/cmake/mlir/MLIRConfigVersion.cmake /opt/homebrew/share/cmake/Modules/CMakeCInformation.cmake /opt/homebrew/share/cmake/Modules/CMakeCXXInformation.cmake /opt/homebrew/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /opt/homebrew/share/cmake/Modules/CMakeGenericSystem.cmake /opt/homebrew/share/cmake/Modules/CMakeInitializeConfigs.cmake /opt/homebrew/share/cmake/Modules/CMakeLanguageInformation.cmake /opt/homebrew/share/cmake/Modules/CMakePushCheckState.cmake /opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /opt/homebrew/share/cmake/Modules/CheckCSourceCompiles.cmake /opt/homebrew/share/cmake/Modules/CheckIncludeFile.cmake /opt/homebrew/share/cmake/Modules/Compiler/AppleClang-C.cmake /opt/homebrew/share/cmake/Modules/Compiler/AppleClang-CXX.cmake /opt/homebrew/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /opt/homebrew/share/cmake/Modules/Compiler/Clang.cmake /opt/homebrew/share/cmake/Modules/Compiler/GNU.cmake /opt/homebrew/share/cmake/Modules/FindPackageHandleStandardArgs.cmake /opt/homebrew/share/cmake/Modules/FindPackageMessage.cmake /opt/homebrew/share/cmake/Modules/FindPkgConfig.cmake /opt/homebrew/share/cmake/Modules/FindZLIB.cmake /opt/homebrew/share/cmake/Modules/Internal/CMakeCLinkerInformation.cmake /opt/homebrew/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake /opt/homebrew/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake /opt/homebrew/share/cmake/Modules/Internal/CheckCommon.cmake /opt/homebrew/share/cmake/Modules/Internal/CheckSourceCompiles.cmake /opt/homebrew/share/cmake/Modules/Linker/AppleClang-C.cmake /opt/homebrew/share/cmake/Modules/Linker/AppleClang-CXX.cmake /opt/homebrew/share/cmake/Modules/Linker/AppleClang.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-AppleClang-C.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-AppleClang-CXX.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-Clang-C.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-Clang-CXX.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-Clang.cmake /opt/homebrew/share/cmake/Modules/Platform/Darwin-Initialize.cmake /opt/homebrew/share/cmake/Modules/Platform/Darwin.cmake /opt/homebrew/share/cmake/Modules/Platform/Linker/Apple-AppleClang-C.cmake /opt/homebrew/share/cmake/Modules/Platform/Linker/Apple-AppleClang-CXX.cmake /opt/homebrew/share/cmake/Modules/Platform/Linker/Apple-AppleClang.cmake /opt/homebrew/share/cmake/Modules/Platform/UnixPaths.cmake /opt/homebrew/share/cmake/Modules/SelectLibraryConfigurations.cmake CMakeCache.txt CMakeFiles/4.4.5/CMakeCCompiler.cmake CMakeFiles/4.4.5/CMakeCXXCompiler.cmake CMakeFiles/4.4.5/CMakeSystem.cmake: phony
+build /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/CMakeLists.txt /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/FindFFI.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/FindLibEdit.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/FindLibXml2.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/Findzstd.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/LLVM-Config.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/LLVMConfig.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/LLVMConfigVersion.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/LLVMDistributionSupport.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/LLVMExports-release.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/LLVMExports.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/llvm/TableGen.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/mlir/MLIRTargets-release.cmake /opt/homebrew/Cellar/llvm/23.1.5/lib/cmake/mlir/MLIRTargets.cmake /opt/homebrew/opt/llvm/lib/cmake/mlir/MLIRConfig.cmake /opt/homebrew/opt/llvm/lib/cmake/mlir/MLIRConfigVersion.cmake /opt/homebrew/share/cmake/Modules/CMakeCInformation.cmake /opt/homebrew/share/cmake/Modules/CMakeCXXInformation.cmake /opt/homebrew/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /opt/homebrew/share/cmake/Modules/CMakeGenericSystem.cmake /opt/homebrew/share/cmake/Modules/CMakeInitializeConfigs.cmake /opt/homebrew/share/cmake/Modules/CMakeLanguageInformation.cmake /opt/homebrew/share/cmake/Modules/CMakePushCheckState.cmake /opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /opt/homebrew/share/cmake/Modules/CTest.cmake /opt/homebrew/share/cmake/Modules/CTestTargets.cmake /opt/homebrew/share/cmake/Modules/CTestUseLaunchers.cmake /opt/homebrew/share/cmake/Modules/CheckCSourceCompiles.cmake /opt/homebrew/share/cmake/Modules/CheckIncludeFile.cmake /opt/homebrew/share/cmake/Modules/Compiler/AppleClang-C.cmake /opt/homebrew/share/cmake/Modules/Compiler/AppleClang-CXX.cmake /opt/homebrew/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /opt/homebrew/share/cmake/Modules/Compiler/Clang.cmake /opt/homebrew/share/cmake/Modules/Compiler/GNU.cmake /opt/homebrew/share/cmake/Modules/DartConfiguration.tcl.in /opt/homebrew/share/cmake/Modules/FindPackageHandleStandardArgs.cmake /opt/homebrew/share/cmake/Modules/FindPackageMessage.cmake /opt/homebrew/share/cmake/Modules/FindPkgConfig.cmake /opt/homebrew/share/cmake/Modules/FindZLIB.cmake /opt/homebrew/share/cmake/Modules/Internal/CMakeCLinkerInformation.cmake /opt/homebrew/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake /opt/homebrew/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake /opt/homebrew/share/cmake/Modules/Internal/CheckCommon.cmake /opt/homebrew/share/cmake/Modules/Internal/CheckSourceCompiles.cmake /opt/homebrew/share/cmake/Modules/Linker/AppleClang-C.cmake /opt/homebrew/share/cmake/Modules/Linker/AppleClang-CXX.cmake /opt/homebrew/share/cmake/Modules/Linker/AppleClang.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-AppleClang-C.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-AppleClang-CXX.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-Clang-C.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-Clang-CXX.cmake /opt/homebrew/share/cmake/Modules/Platform/Apple-Clang.cmake /opt/homebrew/share/cmake/Modules/Platform/Darwin-Initialize.cmake /opt/homebrew/share/cmake/Modules/Platform/Darwin.cmake /opt/homebrew/share/cmake/Modules/Platform/Linker/Apple-AppleClang-C.cmake /opt/homebrew/share/cmake/Modules/Platform/Linker/Apple-AppleClang-CXX.cmake /opt/homebrew/share/cmake/Modules/Platform/Linker/Apple-AppleClang.cmake /opt/homebrew/share/cmake/Modules/Platform/UnixPaths.cmake /opt/homebrew/share/cmake/Modules/SelectLibraryConfigurations.cmake /opt/homebrew/share/cmake/Templates/CTestScript.cmake.in CMakeCache.txt CMakeFiles/4.4.5/CMakeCCompiler.cmake CMakeFiles/4.4.5/CMakeCXXCompiler.cmake CMakeFiles/4.4.5/CMakeSystem.cmake: phony
 
 
 #############################################

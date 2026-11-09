@@ -48,6 +48,11 @@ tablegen(MLIR include/MiniTriton/IR/MiniTritonGPUDialect.cpp.inc
     -gen-dialect-defs -dialect=mini_gpu
     EXTRA_INCLUDES ${MINI_TRITON_TABLEGEN_INCLUDES})
 
+set(LLVM_TARGET_DEFINITIONS include/MiniTriton/IR/MiniTritonTypes.td)
+tablegen(MLIR include/MiniTriton/IR/MiniTritonTypes.h.inc -gen-typedef-decls
+    EXTRA_INCLUDES ${MINI_TRITON_TABLEGEN_INCLUDES})
+tablegen(MLIR include/MiniTriton/IR/MiniTritonTypes.cpp.inc -gen-typedef-defs
+    EXTRA_INCLUDES ${MINI_TRITON_TABLEGEN_INCLUDES})
 add_custom_target(MiniTritonIncGen DEPENDS ${TABLEGEN_OUTPUT})
 
 add_executable(mini_triton main.cpp)
@@ -72,6 +77,7 @@ target_include_directories(mini_triton PRIVATE
 
 target_sources(mini_triton PRIVATE
     lib/MiniTritonOps.cpp
+    lib/MiniTritonTypes.cpp
 )
 
 target_sources(mini_triton PRIVATE
@@ -99,3 +105,21 @@ target_link_libraries(mini_triton PRIVATE
     MLIRTransformUtils
     MLIRPass
 )
+
+include(CTest)
+if(BUILD_TESTING)
+    add_executable(mini_ttir_tests
+        tests/TTIROpsTest.cpp
+        lib/MiniTritonDialect.cpp
+        lib/MiniTritonTypes.cpp
+        lib/MiniTritonOps.cpp)
+    add_dependencies(mini_ttir_tests MiniTritonIncGen)
+    target_include_directories(mini_ttir_tests PRIVATE
+        ${MINI_TRITON_GENERATED_DIR}
+        ${CMAKE_CURRENT_SOURCE_DIR}/include
+        ${MLIR_INCLUDE_DIRS} ${LLVM_INCLUDE_DIRS})
+    target_link_libraries(mini_ttir_tests PRIVATE
+        MLIRParser MLIRArithDialect MLIRFuncDialect MLIRIR MLIRSupport)
+    add_test(NAME mini_ttir_ops COMMAND mini_ttir_tests
+        ${CMAKE_CURRENT_SOURCE_DIR}/tests/elementwise.mlir)
+endif()

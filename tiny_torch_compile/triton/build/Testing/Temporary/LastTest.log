@@ -1,0 +1,19 @@
+Start testing: Nov 08 21:53 PST
+----------------------------------------------------------
+1/1 Testing: mini_ttir_ops
+1/1 Test: mini_ttir_ops
+Command: "/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/mini_ttir_tests" "/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/tests/elementwise.mlir"
+Directory: /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build
+"mini_ttir_ops" start time: Nov 08 21:53 PST
+Output:
+----------------------------------------------------------
+TTIR kernel, roundtrip, verifier, and memory-effect tests passed
+<end of output>
+Test time =   0.24 sec
+----------------------------------------------------------
+Test Passed.
+"mini_ttir_ops" end time: Nov 08 21:53 PST
+"mini_ttir_ops" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Nov 08 21:53 PST

@@ -22,3 +22,9 @@
 --- !FileInfo:
   filepath: "/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include/MiniTriton/IR/MiniTritonGPU.td"
   includes: "/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton;/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include;/opt/homebrew/Cellar/llvm/23.1.5/include;/opt/homebrew/Cellar/llvm/23.1.5/include"
+--- !FileInfo:
+  filepath: "/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include/MiniTriton/IR/MiniTritonTypes.td"
+  includes: "/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton;/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include;/opt/homebrew/Cellar/llvm/23.1.5/include;/opt/homebrew/Cellar/llvm/23.1.5/include"
+--- !FileInfo:
+  filepath: "/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include/MiniTriton/IR/MiniTritonTypes.td"
+  includes: "/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton;/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include;/opt/homebrew/Cellar/llvm/23.1.5/include;/opt/homebrew/Cellar/llvm/23.1.5/include"
