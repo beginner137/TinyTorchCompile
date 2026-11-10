@@ -5,6 +5,9 @@
 #include "mlir/IR/PatternMatch.h"
 #include "mlir/Transforms/GreedyPatternRewriteDriver.h"
 
+#include "MiniTriton/IR/MiniTritonGPUAttrs.h"
+#include "mlir/Dialect/Func/IR/FuncOps.h"
+
 namespace mini_triton
 {
 
@@ -45,14 +48,37 @@ namespace mini_triton
             MakeRangeOp op,
             mlir::PatternRewriter &rewriter) const override
         {
+            auto oldType = op.getResult().getType();
+            unsigned sizePerThread = target_.warpSize == 32 ? 2 : 1;
+            auto layout = gpu::BlockedLayoutAttr::get(
+                rewriter.getContext(),
+                sizePerThread,
+                target_.warpSize,
+                target_.numWarps);
+
+            auto gpuType = mlir::RankedTensorType::get(
+                oldType.getShape(),
+                oldType.getElementType(),
+                layout);
+
+            // Our demo function returns this tensor, so its
+            // declared return type must change too.
+            auto func = op->getParentOfType<mlir::func::FuncOp>();
+
+            rewriter.modifyOpInPlace(func, [&]
+                                     {
+                auto oldFuncType = func.getFunctionType();
+                func.setType(rewriter.getFunctionType(
+                    oldFuncType.getInputs(), {gpuType}
+                )); });
 
             rewriter.replaceOpWithNewOp<gpu::MakeRangeOp>(
                 op,
-                op.getResult().getType(),
+                gpuType,
                 op.getStartAttr(),
                 op.getEndAttr(),
                 rewriter.getI64IntegerAttr(target_.numWarps),
-                rewriter.getI64IntegerAttr(1));
+                rewriter.getI64IntegerAttr(sizePerThread));
 
             return mlir::success();
         }
