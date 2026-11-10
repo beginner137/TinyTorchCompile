@@ -127,4 +127,16 @@ if(BUILD_TESTING)
         MLIRParser MLIRArithDialect MLIRFuncDialect MLIRIR MLIRSupport)
     add_test(NAME mini_ttir_ops COMMAND mini_ttir_tests
         ${CMAKE_CURRENT_SOURCE_DIR}/tests/elementwise.mlir)
+
+    add_executable(blocked_layout_test
+        tests/BlockedLayoutTest.cpp
+        lib/MiniTritonGPUDialect.cpp
+        lib/MiniTritonGPUOps.cpp)
+    add_dependencies(blocked_layout_test MiniTritonIncGen)
+    target_include_directories(blocked_layout_test PRIVATE
+        ${MINI_TRITON_GENERATED_DIR}
+        ${CMAKE_CURRENT_SOURCE_DIR}/include
+        ${MLIR_INCLUDE_DIRS} ${LLVM_INCLUDE_DIRS})
+    target_link_libraries(blocked_layout_test PRIVATE MLIRIR MLIRSupport)
+    add_test(NAME blocked_layout COMMAND blocked_layout_test)
 endif()

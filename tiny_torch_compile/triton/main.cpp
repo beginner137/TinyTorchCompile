@@ -13,6 +13,7 @@
 #include "MiniTriton/Conversion/LowerToGPU.h"
 #include "mlir/Pass/PassManager.h"
 #include "MiniTriton/IR/MiniTritonGPUAttrs.h"
+#include "MiniTriton/IR/BlockedLayoutUtils.h"
 
 int main()
 {
@@ -93,6 +94,22 @@ int main()
         return 1;
     }
 
+    module.walk([](mini_triton::gpu::MakeRangeOp op)
+                {
+    auto type = op.getResult().getType();
+
+    auto layout = mlir::cast<
+        mini_triton::gpu::BlockedLayoutAttr
+    >(type.getEncoding());
+
+    auto index = mini_triton::getTensorIndex(
+        layout,
+        1, // Warp
+        4, // Lane
+        1  // Register slot
+    );
+
+    llvm::outs() << "Tensor index: " << index << "\n"; });
     printReturnProducer(); // After lowering
     llvm::outs() << "After GPU pass:\n";
     module.print(llvm::outs());

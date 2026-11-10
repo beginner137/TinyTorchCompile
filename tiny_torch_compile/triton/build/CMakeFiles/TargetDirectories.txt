@@ -38,6 +38,7 @@
 /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/CMakeFiles/ContinuousMemCheck.dir
 /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/CMakeFiles/ContinuousSubmit.dir
 /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/CMakeFiles/mini_ttir_tests.dir
+/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/CMakeFiles/blocked_layout_test.dir
 /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/CMakeFiles/test.dir
 /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/CMakeFiles/edit_cache.dir
 /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/CMakeFiles/rebuild_cache.dir

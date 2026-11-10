@@ -1,4 +1,4 @@
-# MiniTriton TTIR tests
+# MiniTriton tests
 
 From the repository root:
 
@@ -12,6 +12,15 @@ ctest --test-dir tiny_torch_compile/triton/build --output-on-failure
 scalar memory operations, invalid operands and attributes, and memory effects.
 Tests use explicit failures rather than C++ assertions, so they run in Release
 builds too. They require neither a GPU nor the Python Triton package.
+
+`BlockedLayoutTest.cpp` checks that a `blocked<2, 32, 4>` layout maps all
+warp/lane/slot combinations to 256 distinct indices in `[0, 256)`.
+Run only this test from the repository root:
+
+```bash
+cmake --build tiny_torch_compile/triton/build --target blocked_layout_test
+ctest --test-dir tiny_torch_compile/triton/build -R '^blocked_layout$' --output-on-failure
+```
 
 ## TTIR contracts
 

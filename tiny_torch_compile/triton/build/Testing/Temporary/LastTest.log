@@ -1,19 +1,19 @@
-Start testing: Nov 09 20:01 PST
+Start testing: Nov 09 21:15 PST
 ----------------------------------------------------------
-1/1 Testing: mini_ttir_ops
-1/1 Test: mini_ttir_ops
-Command: "/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/mini_ttir_tests" "/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/tests/elementwise.mlir"
+2/2 Testing: blocked_layout
+2/2 Test: blocked_layout
+Command: "/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/blocked_layout_test"
 Directory: /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build
-"mini_ttir_ops" start time: Nov 09 20:01 PST
+"blocked_layout" start time: Nov 09 21:15 PST
 Output:
 ----------------------------------------------------------
-TTIR kernel, roundtrip, verifier, and memory-effect tests passed
+Blocked layout covers all 256 indices exactly once.
 <end of output>
-Test time =   0.04 sec
+Test time =   0.20 sec
 ----------------------------------------------------------
 Test Passed.
-"mini_ttir_ops" end time: Nov 09 20:01 PST
-"mini_ttir_ops" time elapsed: 00:00:00
+"blocked_layout" end time: Nov 09 21:15 PST
+"blocked_layout" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Nov 09 20:01 PST
+End testing: Nov 09 21:15 PST

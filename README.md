@@ -94,6 +94,31 @@ details. All test modules also accept `-b`.
 
 ## Generating MLIR operation declarations and definitions
 
+MiniTriton TTIR includes typed pointers, program IDs, ranges, scalar splats,
+pointer arithmetic, and masked loads/stores. Arithmetic uses MLIR's `arith`
+dialect. See [the TTIR tests and operation contracts](tiny_torch_compile/triton/tests/README.md)
+and the [complete elementwise kernel](tiny_torch_compile/triton/tests/elementwise.mlir).
+
+After configuring CMake, build and run the C++ verifier tests from the repository root:
+
+```bash
+cmake --build tiny_torch_compile/triton/build
+ctest --test-dir tiny_torch_compile/triton/build --output-on-failure
+```
+
+CMake automatically generates operation and dialect declarations and definitions
+when their `.td` files or included definitions change. From the repository root:
+
+```bash
+cmake -S tiny_torch_compile/triton -B tiny_torch_compile/triton/build -G Ninja \
+  -DMLIR_DIR="$(brew --prefix llvm)/lib/cmake/mlir"
+cmake --build tiny_torch_compile/triton/build
+```
+
+Generated files live in `tiny_torch_compile/triton/build/include/MiniTriton/IR/`.
+The build uses these before any older generated files in the source directory.
+The manual commands below are optional for inspecting TableGen output.
+
 With Homebrew LLVM installed and `mlir-tblgen` on your `PATH`, run from the
 repository root:
 

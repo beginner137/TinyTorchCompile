@@ -413,6 +413,57 @@ build mini_ttir_tests: CXX_EXECUTABLE_LINKER__mini_ttir_tests_ CMakeFiles/mini_t
   TARGET_PDB = mini_ttir_tests.dbg
   TARGET_SUPPORT_DIR = CMakeFiles/mini_ttir_tests.dir
 
+# =============================================================================
+# Object build statements for EXECUTABLE target blocked_layout_test
+
+
+#############################################
+# Order-only phony target for blocked_layout_test
+
+build cmake_object_order_depends_target_blocked_layout_test: phony || MiniTritonIncGen
+
+build CMakeFiles/blocked_layout_test.dir/tests/BlockedLayoutTest.cpp.o: CXX_COMPILER__blocked_layout_test_unscanned_ /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/tests/BlockedLayoutTest.cpp || cmake_object_order_depends_target_blocked_layout_test
+  DEP_FILE = CMakeFiles/blocked_layout_test.dir/tests/BlockedLayoutTest.cpp.o.d
+  FLAGS = -std=gnu++17
+  INCLUDES = -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/include -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include -I/opt/homebrew/Cellar/llvm/23.1.5/include
+  OBJECT_DIR = CMakeFiles/blocked_layout_test.dir
+  OBJECT_FILE_DIR = CMakeFiles/blocked_layout_test.dir/tests
+  TARGET_SUPPORT_DIR = CMakeFiles/blocked_layout_test.dir
+
+build CMakeFiles/blocked_layout_test.dir/lib/MiniTritonGPUDialect.cpp.o: CXX_COMPILER__blocked_layout_test_unscanned_ /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/lib/MiniTritonGPUDialect.cpp || cmake_object_order_depends_target_blocked_layout_test
+  DEP_FILE = CMakeFiles/blocked_layout_test.dir/lib/MiniTritonGPUDialect.cpp.o.d
+  FLAGS = -std=gnu++17
+  INCLUDES = -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/include -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include -I/opt/homebrew/Cellar/llvm/23.1.5/include
+  OBJECT_DIR = CMakeFiles/blocked_layout_test.dir
+  OBJECT_FILE_DIR = CMakeFiles/blocked_layout_test.dir/lib
+  TARGET_SUPPORT_DIR = CMakeFiles/blocked_layout_test.dir
+
+build CMakeFiles/blocked_layout_test.dir/lib/MiniTritonGPUOps.cpp.o: CXX_COMPILER__blocked_layout_test_unscanned_ /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/lib/MiniTritonGPUOps.cpp || cmake_object_order_depends_target_blocked_layout_test
+  DEP_FILE = CMakeFiles/blocked_layout_test.dir/lib/MiniTritonGPUOps.cpp.o.d
+  FLAGS = -std=gnu++17
+  INCLUDES = -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/include -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include -I/opt/homebrew/Cellar/llvm/23.1.5/include
+  OBJECT_DIR = CMakeFiles/blocked_layout_test.dir
+  OBJECT_FILE_DIR = CMakeFiles/blocked_layout_test.dir/lib
+  TARGET_SUPPORT_DIR = CMakeFiles/blocked_layout_test.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target blocked_layout_test
+
+
+#############################################
+# Link the executable blocked_layout_test
+
+build blocked_layout_test: CXX_EXECUTABLE_LINKER__blocked_layout_test_ CMakeFiles/blocked_layout_test.dir/tests/BlockedLayoutTest.cpp.o CMakeFiles/blocked_layout_test.dir/lib/MiniTritonGPUDialect.cpp.o CMakeFiles/blocked_layout_test.dir/lib/MiniTritonGPUOps.cpp.o | /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRIR.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSupport.a /opt/homebrew/Cellar/llvm/23.1.5/lib/libLLVM.23.1.dylib || MiniTritonIncGen
+  LINK_FLAGS = -Wl,-search_paths_first -Wl,-headerpad_max_install_names
+  LINK_LIBRARIES = -Wl,-rpath,/opt/homebrew/Cellar/llvm/23.1.5/lib  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRIR.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libMLIRSupport.a  /opt/homebrew/Cellar/llvm/23.1.5/lib/libLLVM.23.1.dylib
+  OBJECT_DIR = CMakeFiles/blocked_layout_test.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = blocked_layout_test
+  TARGET_PDB = blocked_layout_test.dbg
+  TARGET_SUPPORT_DIR = CMakeFiles/blocked_layout_test.dir
+
 
 #############################################
 # Utility command for test
@@ -822,7 +873,7 @@ build CMakeFiles/ContinuousSubmit | ${cmake_ninja_workdir}CMakeFiles/ContinuousS
 #############################################
 # Folder: /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build
 
-build all: phony mini_triton mini_ttir_tests
+build all: phony mini_triton mini_ttir_tests blocked_layout_test
 
 # =============================================================================
 # Built-in targets
