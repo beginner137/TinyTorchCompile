@@ -147,6 +147,34 @@ unsigned BlockedLayoutAttr::getWarpsPerCTA() const {
 
 } // namespace mini_triton::gpu
 MLIR_DEFINE_EXPLICIT_TYPE_ID(::mini_triton::gpu::BlockedLayoutAttr)
+namespace mini_triton::gpu {
+
+
+/// Parse an attribute registered to this dialect.
+::mlir::Attribute MiniTritonGPUDialect::parseAttribute(::mlir::DialectAsmParser &parser,
+                                      ::mlir::Type type) const {
+  ::llvm::SMLoc typeLoc = parser.getCurrentLocation();
+  ::llvm::StringRef attrTag;
+  {
+    ::mlir::Attribute attr;
+    auto parseResult = generatedAttributeParser(parser, &attrTag, type, attr);
+    if (parseResult.has_value())
+      return attr;
+  }
+  
+  parser.emitError(typeLoc) << "unknown attribute `"
+      << attrTag << "` in dialect `" << getNamespace() << "`";
+  return {};
+}
+/// Print an attribute registered to this dialect.
+void MiniTritonGPUDialect::printAttribute(::mlir::Attribute attr,
+                         ::mlir::DialectAsmPrinter &printer) const {
+  if (::mlir::succeeded(generatedAttributePrinter(attr, printer)))
+    return;
+  
+}
+
+} // namespace mini_triton::gpu
 
 #endif // GET_ATTRDEF_CLASSES
 

@@ -1,2 +1,2 @@
-mini_ttir_ops 2 0.11937
+mini_ttir_ops 3 0.0117991
 ---

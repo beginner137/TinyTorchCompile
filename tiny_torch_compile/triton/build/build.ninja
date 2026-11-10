@@ -93,7 +93,7 @@ build mlir-doc: phony
 #############################################
 # Utility command for MiniTritonIncGen
 
-build MiniTritonIncGen: phony CMakeFiles/MiniTritonIncGen include/MiniTriton/IR/MiniTritonDialect.cpp.inc include/MiniTriton/IR/MiniTritonDialect.h.inc include/MiniTriton/IR/MiniTritonGPUDialect.cpp.inc include/MiniTriton/IR/MiniTritonGPUDialect.h.inc include/MiniTriton/IR/MiniTritonGPUOps.cpp.inc include/MiniTriton/IR/MiniTritonGPUOps.h.inc include/MiniTriton/IR/MiniTritonOps.cpp.inc include/MiniTriton/IR/MiniTritonOps.h.inc include/MiniTriton/IR/MiniTritonTypes.cpp.inc include/MiniTriton/IR/MiniTritonTypes.h.inc
+build MiniTritonIncGen: phony CMakeFiles/MiniTritonIncGen include/MiniTriton/IR/MiniTritonDialect.cpp.inc include/MiniTriton/IR/MiniTritonDialect.h.inc include/MiniTriton/IR/MiniTritonGPUAttrs.cpp.inc include/MiniTriton/IR/MiniTritonGPUAttrs.h.inc include/MiniTriton/IR/MiniTritonGPUDialect.cpp.inc include/MiniTriton/IR/MiniTritonGPUDialect.h.inc include/MiniTriton/IR/MiniTritonGPUOps.cpp.inc include/MiniTriton/IR/MiniTritonGPUOps.h.inc include/MiniTriton/IR/MiniTritonOps.cpp.inc include/MiniTriton/IR/MiniTritonOps.h.inc include/MiniTriton/IR/MiniTritonTypes.cpp.inc include/MiniTriton/IR/MiniTritonTypes.h.inc
 
 # =============================================================================
 # Object build statements for EXECUTABLE target mini_triton
@@ -453,7 +453,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Phony custom command for CMakeFiles/MiniTritonIncGen
 
-build CMakeFiles/MiniTritonIncGen | ${cmake_ninja_workdir}CMakeFiles/MiniTritonIncGen: phony include/MiniTriton/IR/MiniTritonOps.h.inc include/MiniTriton/IR/MiniTritonOps.cpp.inc include/MiniTriton/IR/MiniTritonDialect.h.inc include/MiniTriton/IR/MiniTritonDialect.cpp.inc include/MiniTriton/IR/MiniTritonGPUOps.h.inc include/MiniTriton/IR/MiniTritonGPUOps.cpp.inc include/MiniTriton/IR/MiniTritonGPUDialect.h.inc include/MiniTriton/IR/MiniTritonGPUDialect.cpp.inc include/MiniTriton/IR/MiniTritonTypes.h.inc include/MiniTriton/IR/MiniTritonTypes.cpp.inc
+build CMakeFiles/MiniTritonIncGen | ${cmake_ninja_workdir}CMakeFiles/MiniTritonIncGen: phony include/MiniTriton/IR/MiniTritonOps.h.inc include/MiniTriton/IR/MiniTritonOps.cpp.inc include/MiniTriton/IR/MiniTritonDialect.h.inc include/MiniTriton/IR/MiniTritonDialect.cpp.inc include/MiniTriton/IR/MiniTritonGPUOps.h.inc include/MiniTriton/IR/MiniTritonGPUOps.cpp.inc include/MiniTriton/IR/MiniTritonGPUDialect.h.inc include/MiniTriton/IR/MiniTritonGPUDialect.cpp.inc include/MiniTriton/IR/MiniTritonTypes.h.inc include/MiniTriton/IR/MiniTritonTypes.cpp.inc include/MiniTriton/IR/MiniTritonGPUAttrs.h.inc include/MiniTriton/IR/MiniTritonGPUAttrs.cpp.inc
 
 
 #############################################
@@ -474,6 +474,28 @@ build include/MiniTriton/IR/MiniTritonDialect.h.inc | ${cmake_ninja_workdir}incl
   COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/Cellar/llvm/23.1.5/bin/mlir-tblgen -gen-dialect-decls -dialect=mini -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include -I/opt/homebrew/Cellar/llvm/23.1.5/include -I/opt/homebrew/Cellar/llvm/23.1.5/include /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include/MiniTriton/IR/MiniTritonDialect.td --write-if-changed -o include/MiniTriton/IR/MiniTritonDialect.h.inc -d include/MiniTriton/IR/MiniTritonDialect.h.inc.d && /opt/homebrew/bin/cmake -E cmake_transform_depfile Ninja gccdepfile /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/include/MiniTriton/IR/MiniTritonDialect.h.inc.d /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/CMakeFiles/d/733eaec1ca13e4a7c64bfbd968844973a8905db15e548cc76eeaaa9464ca8f0a.d
   DESC = Building include/MiniTriton/IR/MiniTritonDialect.h.inc...
   depfile = CMakeFiles/d/733eaec1ca13e4a7c64bfbd968844973a8905db15e548cc76eeaaa9464ca8f0a.d
+  deps = gcc
+  restat = 1
+
+
+#############################################
+# Custom command for include/MiniTriton/IR/MiniTritonGPUAttrs.cpp.inc
+
+build include/MiniTriton/IR/MiniTritonGPUAttrs.cpp.inc | ${cmake_ninja_workdir}include/MiniTriton/IR/MiniTritonGPUAttrs.cpp.inc: CUSTOM_COMMAND /opt/homebrew/Cellar/llvm/23.1.5/bin/mlir-tblgen /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include/MiniTriton/IR/MiniTritonGPUAttrs.td
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/Cellar/llvm/23.1.5/bin/mlir-tblgen -gen-attrdef-defs -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include -I/opt/homebrew/Cellar/llvm/23.1.5/include -I/opt/homebrew/Cellar/llvm/23.1.5/include /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include/MiniTriton/IR/MiniTritonGPUAttrs.td --write-if-changed -o include/MiniTriton/IR/MiniTritonGPUAttrs.cpp.inc -d include/MiniTriton/IR/MiniTritonGPUAttrs.cpp.inc.d && /opt/homebrew/bin/cmake -E cmake_transform_depfile Ninja gccdepfile /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/include/MiniTriton/IR/MiniTritonGPUAttrs.cpp.inc.d /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/CMakeFiles/d/714ef257be9f79de0d3496753b993838a80d64dbf020836e6ecd5f4307a9d6ab.d
+  DESC = Building include/MiniTriton/IR/MiniTritonGPUAttrs.cpp.inc...
+  depfile = CMakeFiles/d/714ef257be9f79de0d3496753b993838a80d64dbf020836e6ecd5f4307a9d6ab.d
+  deps = gcc
+  restat = 1
+
+
+#############################################
+# Custom command for include/MiniTriton/IR/MiniTritonGPUAttrs.h.inc
+
+build include/MiniTriton/IR/MiniTritonGPUAttrs.h.inc | ${cmake_ninja_workdir}include/MiniTriton/IR/MiniTritonGPUAttrs.h.inc: CUSTOM_COMMAND /opt/homebrew/Cellar/llvm/23.1.5/bin/mlir-tblgen /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include/MiniTriton/IR/MiniTritonGPUAttrs.td
+  COMMAND = cd /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build && /opt/homebrew/Cellar/llvm/23.1.5/bin/mlir-tblgen -gen-attrdef-decls -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton -I/Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include -I/opt/homebrew/Cellar/llvm/23.1.5/include -I/opt/homebrew/Cellar/llvm/23.1.5/include /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/include/MiniTriton/IR/MiniTritonGPUAttrs.td --write-if-changed -o include/MiniTriton/IR/MiniTritonGPUAttrs.h.inc -d include/MiniTriton/IR/MiniTritonGPUAttrs.h.inc.d && /opt/homebrew/bin/cmake -E cmake_transform_depfile Ninja gccdepfile /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/include/MiniTriton/IR/MiniTritonGPUAttrs.h.inc.d /Users/dorisxiang/inference-projects/TinyTorchCompile/tiny_torch_compile/triton/build/CMakeFiles/d/492b35605291742e775afa69b4f4f8afc68d07be569ffcc2ef5e0f22291fc701.d
+  DESC = Building include/MiniTriton/IR/MiniTritonGPUAttrs.h.inc...
+  depfile = CMakeFiles/d/492b35605291742e775afa69b4f4f8afc68d07be569ffcc2ef5e0f22291fc701.d
   deps = gcc
   restat = 1
 

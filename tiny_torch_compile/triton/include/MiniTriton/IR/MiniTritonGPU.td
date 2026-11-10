@@ -3,6 +3,7 @@ include "mlir/IR/OpBase.td"
 def MiniTritonGPU_Dialect : Dialect {
   let name = "mini_gpu";
   let cppNamespace = "::mini_triton::gpu";
+  let useDefaultAttributePrinterParser = 1;
 }
 
 class MiniGPU_Op<string mnemonic>

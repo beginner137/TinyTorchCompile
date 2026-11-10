@@ -12,6 +12,7 @@
 #include "MiniTriton/IR/MiniTritonGPUOps.h"
 #include "MiniTriton/Conversion/LowerToGPU.h"
 #include "mlir/Pass/PassManager.h"
+#include "MiniTriton/IR/MiniTritonGPUAttrs.h"
 
 int main()
 {
@@ -25,6 +26,19 @@ int main()
         << dialect->getNamespace() << "\n";
 
     context.getOrLoadDialect<mini_triton::gpu::MiniTritonGPUDialect>();
+    mlir::OpBuilder builder(&context);
+
+    // NVIDIA: 2 elements per lane, 32 lanes, 4 warps.
+    auto layout = mini_triton::gpu::BlockedLayoutAttr::get(
+        &context, 2, 32, 4);
+
+    auto tensorType = mlir::RankedTensorType::get(
+        {256},
+        builder.getI32Type(),
+        layout);
+
+    llvm::outs() << "Layout: " << layout << "\n";
+    llvm::outs() << "Tensor type: " << tensorType << "\n";
 
     mlir::OperationName splatName(mini_triton::gpu::SplatOp::getOperationName(), &context);
     llvm::outs() << "GPU splat registered: "
@@ -34,8 +48,6 @@ int main()
 
     llvm::outs() << "GPU make_range registered: "
                  << rangeName.isRegistered() << "\n";
-
-    mlir::OpBuilder builder(&context);
 
     auto module = mlir::ModuleOp::create(
         builder.getUnknownLoc());

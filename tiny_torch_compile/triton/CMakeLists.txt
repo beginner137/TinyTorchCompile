@@ -53,6 +53,11 @@ tablegen(MLIR include/MiniTriton/IR/MiniTritonTypes.h.inc -gen-typedef-decls
     EXTRA_INCLUDES ${MINI_TRITON_TABLEGEN_INCLUDES})
 tablegen(MLIR include/MiniTriton/IR/MiniTritonTypes.cpp.inc -gen-typedef-defs
     EXTRA_INCLUDES ${MINI_TRITON_TABLEGEN_INCLUDES})
+set(LLVM_TARGET_DEFINITIONS include/MiniTriton/IR/MiniTritonGPUAttrs.td)
+tablegen(MLIR include/MiniTriton/IR/MiniTritonGPUAttrs.h.inc -gen-attrdef-decls
+    EXTRA_INCLUDES ${MINI_TRITON_TABLEGEN_INCLUDES})
+tablegen(MLIR include/MiniTriton/IR/MiniTritonGPUAttrs.cpp.inc -gen-attrdef-defs
+    EXTRA_INCLUDES ${MINI_TRITON_TABLEGEN_INCLUDES})
 add_custom_target(MiniTritonIncGen DEPENDS ${TABLEGEN_OUTPUT})
 
 add_executable(mini_triton main.cpp)
